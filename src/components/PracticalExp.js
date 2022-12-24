@@ -2,12 +2,12 @@
  
 import React, { Component } from "react";
  
-class App extends Component {
- render() {
-   return (
-   <div>Hello World</div>
-   );
- }
+class PracticalExp extends Component {
+  render() {
+    return (
+      <h1>Practical Experience</h1>
+    );
+  }
 }
  
-export default App;
+export default PracticalExp;
