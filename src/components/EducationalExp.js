@@ -22,8 +22,12 @@ class EducationalExp extends Component {
             <label htmlFor="completed_study">finished study</label>
             <input type="date" id="completed_study" name="completeStudy" />
           </div>
-          <button type="submit">Submit Info</button>
         </form>
+        <div className="btns">
+        <button type="submit">add</button>
+          <button type="button">edit</button>
+          <button type="button">delete</button>
+        </div>
       </div>
     );
   }

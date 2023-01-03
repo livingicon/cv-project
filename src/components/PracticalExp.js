@@ -26,8 +26,12 @@ class PracticalExp extends Component {
             <label htmlFor="finished_employment">employment finished</label>
             <input type="date" id="finished_employment" name="finishedEmployment" />
           </div>
-          <button type="submit">Submit Info</button>
         </form>
+        <div className="btns">
+          <button type="submit">add</button>
+          <button type="button">edit</button>
+          <button type="button">delete</button>
+        </div>
       </div>
     );
   }

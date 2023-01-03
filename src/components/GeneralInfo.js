@@ -20,7 +20,6 @@ class GeneralInfo extends Component {
             <label htmlFor="phone_number">phone number</label>
             <input type="tel" id="phone_number" name="phone" placeholder="123-456-7891" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autoComplete="off" />
           </div>
-          <button type="submit">Submit Info</button>
         </form>
       </div>
     );
