@@ -8,7 +8,8 @@ import React, { Component } from "react";
 class App extends Component {
  render() {
    return (
-    <div>Hello World
+    <div>
+      <h1>CV Creator</h1>
       <GeneralInfo></GeneralInfo>
       <EducationalExp></EducationalExp>
       <PracticalExp></PracticalExp>
