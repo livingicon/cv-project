@@ -17,8 +17,10 @@ class EducationalExp extends Component {
             <input type="text" id="degree_program" name="degree" placeholder="bachelor of example in example" autoComplete="off"/>
           </div>
           <div>
-            <label htmlFor="date_of_study">date of study</label>
-            <input type="text" id="date_of_study" name="dateOfStudy" placeholder="month year-month year" autoComplete="off" />
+            <label htmlFor="began_study">began study</label>
+            <input type="date" id="began_study" name="beganStudy" />
+            <label htmlFor="completed_study">finished study</label>
+            <input type="date" id="completed_study" name="completeStudy" />
           </div>
           <button type="submit">Submit Info</button>
         </form>

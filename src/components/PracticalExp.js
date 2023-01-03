@@ -21,8 +21,10 @@ class PracticalExp extends Component {
             <input type="text" id="main_job_tasks" name="mainJobTasks" autoComplete="off" />
           </div>
           <div>
-            <label htmlFor="employment_dates">employment duration</label>
-            <input type="text" id="employment_dates" name="employmentDates" placeholder="month year-month year" autoComplete="off" />
+            <label htmlFor="began_employment">employment began</label>
+            <input type="date" id="began_employment" name="beganEmployment" />
+            <label htmlFor="finished_employment">employment finished</label>
+            <input type="date" id="finished_employment" name="finishedEmployment" />
           </div>
           <button type="submit">Submit Info</button>
         </form>
