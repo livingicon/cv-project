@@ -9,16 +9,16 @@ class EducationalExp extends Component {
         <h2>Educational Experience</h2>
         <form>
           <div>
-            <label htmlFor="userName">name</label>
-            <input type="text" id="userName" name="user_name" placeholder="full name" autoComplete="off" />
+            <label htmlFor="school_name">school name</label>
+            <input type="text" id="school_name" name="schoolName" placeholder="university of example" autoComplete="off" />
           </div>
           <div>
-            <label htmlFor="user_email">email</label>
-            <input type="email" id="user_email" name="email" placeholder="you@example.com" autoComplete="off"/>
+            <label htmlFor="degree_program">degree or certification</label>
+            <input type="text" id="degree_program" name="degree" placeholder="bachelor of example in example" autoComplete="off"/>
           </div>
           <div>
-            <label htmlFor="phone_number">phone number</label>
-            <input type="tel" id="phone_number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autoComplete="off" />
+            <label htmlFor="date_of_study">date of study</label>
+            <input type="text" id="date_of_study" name="dateOfStudy" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autoComplete="off" />
           </div>
           <button type="submit">Submit Info</button>
         </form>

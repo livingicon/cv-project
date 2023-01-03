@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class GeneralInfo extends Component {
   render() {
     return (
-      <div>
+      <div className="forms">
         <h2>General Information</h2>
         <form>
           <div>
@@ -18,7 +18,7 @@ class GeneralInfo extends Component {
           </div>
           <div>
             <label htmlFor="phone_number">phone number</label>
-            <input type="tel" id="phone_number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autoComplete="off" />
+            <input type="tel" id="phone_number" name="phone" placeholder="123-456-7891" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autoComplete="off" />
           </div>
           <button type="submit">Submit Info</button>
         </form>
