@@ -18,7 +18,7 @@ class EducationalExp extends Component {
           </div>
           <div>
             <label htmlFor="date_of_study">date of study</label>
-            <input type="text" id="date_of_study" name="dateOfStudy" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" autoComplete="off" />
+            <input type="text" id="date_of_study" name="dateOfStudy" placeholder="month year-month year" autoComplete="off" />
           </div>
           <button type="submit">Submit Info</button>
         </form>
