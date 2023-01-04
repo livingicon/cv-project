@@ -1,10 +1,9 @@
 // App.js
 
+import React, { Component } from "react";
 import GeneralInfo from "./components/GeneralInfo";
 import EducationalExp from "./components/EducationalExp";
 import PracticalExp from "./components/PracticalExp";
-import CVPreview from "./components/CVPreview";
-import React, { Component } from "react";
  
 class App extends Component {
 
@@ -18,15 +17,10 @@ class App extends Component {
 
         <div className="main">
           <div className="cvForms">
-            <GeneralInfo></GeneralInfo>
-            <EducationalExp></EducationalExp>
-            <PracticalExp></PracticalExp>
+            <GeneralInfo />
+            <EducationalExp />
+            <PracticalExp />
           </div>
-
-          <div className="cvPreview">
-            <CVPreview></CVPreview>
-          </div>
-
         </div>
 
         <div className="footer">
@@ -37,5 +31,5 @@ class App extends Component {
     );
   }
 }
- 
+
 export default App;

@@ -1,9 +1,10 @@
 // EducationalInfo.js
- 
+
 import React, { Component } from 'react';
  
 class EducationalExp extends Component {
   render() {
+
     return (
       <div className="forms">
         <h2>Educational Experience</h2>
