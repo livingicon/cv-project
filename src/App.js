@@ -4,10 +4,12 @@ import React, { Component } from "react";
 import GeneralInfo from "./components/GeneralInfo";
 import EducationalExp from "./components/EducationalExp";
 import PracticalExp from "./components/PracticalExp";
+// import CVPreview from "./components/CVPreview";
  
 class App extends Component {
 
   render() {
+
     return (
       <div>
 
@@ -20,6 +22,9 @@ class App extends Component {
             <GeneralInfo />
             <EducationalExp />
             <PracticalExp />
+          </div>
+          <div className="cvPreview">
+            {/* <CVPreview /> */}
           </div>
         </div>
 
