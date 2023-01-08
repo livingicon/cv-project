@@ -33,6 +33,8 @@ class PracticalExp extends Component {
           <button type="button">delete</button>
         </div>
       </div>
+
+      
     );
   }
 }

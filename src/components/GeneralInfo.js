@@ -58,8 +58,9 @@ class GeneralInfo extends Component {
         </form>
 
         <div className="cv_preview">
-          <CVPreview fullName={fullName} submitFullName={submitFullName} /> {/* passing a dynamic prop to your component from parent component */}
-        </div>
+          <CVPreview fullName={fullName} submitFullName={submitFullName} />
+        </div> 
+       
     
       </div>
     );
