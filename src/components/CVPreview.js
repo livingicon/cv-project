@@ -7,9 +7,8 @@ class CVPreview extends Component {
   render() {
     return (
       <div className="cv_preview">
-        <h3>CV Preview</h3>
-        <p>Name: {this.props.fullName}</p> {/*working*/}
-        <p>Submitted: {this.props.submitFullName}</p> {/*working*/}
+        <h3>Generate CV</h3>
+        <button>Preview</button>
       </div>
     );
   }

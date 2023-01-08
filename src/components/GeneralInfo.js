@@ -1,7 +1,6 @@
 // GeneralInfo.js
  
 import React, { Component } from 'react';
-import CVPreview from "./CVPreview";
  
 class GeneralInfo extends Component {
   constructor() {
@@ -56,11 +55,6 @@ class GeneralInfo extends Component {
             <input type="tel" id="phone_number" name="phone" placeholder="123-456-7891" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autoComplete="off" />
           </div>
         </form>
-
-        <div className="cv_preview">
-          <CVPreview fullName={fullName} submitFullName={submitFullName} />
-        </div> 
-       
     
       </div>
     );

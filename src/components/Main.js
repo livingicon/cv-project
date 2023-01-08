@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import GeneralInfo from "./GeneralInfo";
 import EducationalExp from "./EducationalExp";
 import PracticalExp from "./PracticalExp";
+import CVPreview from "./CVPreview";
  
 class Main extends Component {
   render() {
@@ -12,6 +13,7 @@ class Main extends Component {
         <GeneralInfo />
         <EducationalExp />
         <PracticalExp />
+        <CVPreview />
       </div>
     );
   }
