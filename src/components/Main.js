@@ -7,17 +7,16 @@ import PracticalExp from "./Main/PracticalExp";
 import CVPreview from "./Main/CVPreview";
  
 class Main extends Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
 
-  //   this.state = {
-  //     task: {
-  //       text: '', 
-  //       id: uniqid()
-  //     },
-  //     tasks: [],
-  //   };
-  // }
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: ""
+    };
+  }
 
   // handleChange = (e) => {
   //   this.setState({
@@ -33,10 +32,21 @@ class Main extends Component {
 
     return (
       <div className="main">
-        <GeneralInfo />
-        <EducationalExp />
-        <PracticalExp />
-        <CVPreview />
+        <GeneralInfo 
+        
+        />
+
+        <EducationalExp 
+        
+        />
+
+        <PracticalExp 
+        
+        />
+
+        <CVPreview 
+        
+        />
       </div>
     );
   }

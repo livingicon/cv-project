@@ -27,25 +27,38 @@ class GeneralInfo extends Component {
   }
 
   render() {
-    const { fullName, submitFullName } = this.state;
+    const { firstName, lastName } = this.state;
 
     return (
       <div className="forms">
         <h2>General Information</h2>
-        <form onSubmit={this.onSubmitName}> {/* not being used right now */}
+        <form onSubmit={this.onSubmit}> {/* not being used right now */}
           <div>
-            <label htmlFor="userName">name</label>
+            <label htmlFor="firstName">first name</label>
             <input
               onChange={this.handleChange}
-              value={fullName}
+              value={firstName}
               type="text" 
-              id="userName" 
-              name="user_name" 
-              placeholder="full name" 
+              id="firstName" 
+              name="firstName" 
+              placeholder="first name" 
               required
             />
-            <button type="submit">Submit Name</button>
           </div>
+
+          <div>
+            <label htmlFor="lastName">last name</label>
+            <input
+              onChange={this.handleChange}
+              value={lastName}
+              type="text" 
+              id="lastName" 
+              name="lastName" 
+              placeholder="last name" 
+              required
+            />
+          </div>
+
           <div>
             <label htmlFor="user_email">email</label>
             <input type="email" id="user_email" name="email" placeholder="you@example.com" autoComplete="off"/>
