@@ -3,36 +3,14 @@
 import React, { Component } from 'react';
  
 class GeneralInfo extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      fullName: '',
-      submitFullName: '',
-    }
-  };
-
-  handleChange = (e) => {
-    this.setState({ // state always re-renders application
-      fullName: e.target.value,
-    });
-  };
-
-  onSubmitName = (e) => { // not being used right now
-    e.preventDefault();
-
-    this.setState({
-      submitFullName: this.state.submitFullName.concat(this.state.fullName),
-    });
-  }
 
   render() {
-    const { firstName, lastName } = this.state;
+    const { firstName, lastName, onSubmitGeneralInfo } = this.props; // this.props.firstName
 
     return (
       <div className="forms">
         <h2>General Information</h2>
-        <form onSubmit={this.onSubmit}> {/* not being used right now */}
+        <form onSubmit={onSubmitGeneralInfo}>
           <div>
             <label htmlFor="firstName">first name</label>
             <input
@@ -67,6 +45,7 @@ class GeneralInfo extends Component {
             <label htmlFor="phone_number">phone number</label>
             <input type="tel" id="phone_number" name="phone" placeholder="123-456-7891" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autoComplete="off" />
           </div>
+          <button type="submit">submit</button>
         </form>
     
       </div>

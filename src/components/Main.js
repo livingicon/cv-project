@@ -11,29 +11,48 @@ class Main extends Component {
     super();
 
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: ""
+      generalInfo: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: ""
+      },
+      setGeneralInfo: []
     };
   }
 
-  // handleChange = (e) => {
-  //   this.setState({
-  //     task: {
-  //       text: e.target.value,
-  //       id: this.state.task.id,
-  //     },
-  //   });
-  // };
+  handleChangeGeneralInfo = (e) => {
+    this.setState({
+      generalInfo: {
+        firstName: e.target.value,
+        lastName: e.target.value,
+        email: e.target.value,
+        phoneNumber: e.target.value,
+      },
+    });
+  };
+
+  onSubmitGeneralInfo = (e) => {
+    e.preventDefault();
+    console.log("general info is go!")
+    // this.setState({
+
+    // });
+  }
+
+  doSomething = (e) => {
+    e.preventDefault();
+    console.log("do something please?");
+  }
 
   render() {
-    // const {} = this.state;
+    const { onSubmitGeneralInfo, doSomething } = this; // this.state (if state)
 
     return (
       <div className="main">
         <GeneralInfo 
-        
+          onSubmitGeneralInfo={onSubmitGeneralInfo} // this.onSubmitGeneralInfo
+          // handleChangeGeneralInfo={handleChangeGeneralInfo}
         />
 
         <EducationalExp 
@@ -45,7 +64,7 @@ class Main extends Component {
         />
 
         <CVPreview 
-        
+          doSomething={doSomething}
         />
       </div>
     );
