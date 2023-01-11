@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class GeneralInfo extends Component {
 
   render() {
-    const { firstName, lastName, onSubmitGeneralInfo, handleChangeGeneralInfo} = this.props; // this.props.firstName
+    const { firstName, lastName, email, phone, onSubmitGeneralInfo, handleChangeGeneralInfo} = this.props; // this.props.firstName
 
     return (
       <div className="forms">
@@ -28,7 +28,7 @@ class GeneralInfo extends Component {
             <label htmlFor="lastName">last name</label>
             <input
               onChange={handleChangeGeneralInfo}
-              value={lastName}
+              value={lastName} 
               type="text" 
               id="lastName" 
               name="lastName" 
@@ -39,11 +39,26 @@ class GeneralInfo extends Component {
 
           <div>
             <label htmlFor="user_email">email</label>
-            <input type="email" id="user_email" name="email" placeholder="you@example.com" autoComplete="off"/>
+            <input 
+              onChange={handleChangeGeneralInfo}
+              value={email} 
+              type="email" 
+              id="user_email" 
+              name="email" 
+              placeholder="you@example.com" 
+              autoComplete="off"/>
           </div>
           <div>
             <label htmlFor="phone_number">phone number</label>
-            <input type="tel" id="phone_number" name="phone" placeholder="123-456-7891" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autoComplete="off" />
+            <input 
+              onChange={handleChangeGeneralInfo}
+              value={phone} 
+              type="tel" 
+              id="phone_number" 
+              name="phone" 
+              placeholder="123-456-7891" 
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+              autoComplete="off" />
           </div>
           <button type="submit">submit</button>
         </form>

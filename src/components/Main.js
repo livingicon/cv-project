@@ -23,19 +23,16 @@ class Main extends Component {
 
   handleChangeGeneralInfo = (e) => {
     this.setState({
-      generalInfo: {
-        firstName: e.target.value,
-        lastName: e.target.value,
-        // email: e.target.value,
-        // phoneNumber: e.target.value,
-      },
+        [e.target.name]: e.target.value, // dynamic keys
     });
-    // console.log(this.state.generalInfo.firstName);
   };
 
   onSubmitGeneralInfo = (e) => {
     e.preventDefault();
-    console.log(this.state.generalInfo.firstName);
+    console.log(this.state.firstName);
+    console.log(this.state.lastName);
+    console.log(this.state.email);
+    console.log(this.state.phone);
     // this.setState({
 
     // });
@@ -43,7 +40,10 @@ class Main extends Component {
 
   doSomething = (e) => {
     e.preventDefault();
-    console.log(this.state.generalInfo.firstName);
+    console.log(this.state.firstName);
+    console.log(this.state.lastName);
+    console.log(this.state.email);
+    console.log(this.state.phone);
   }
 
   render() {
@@ -54,7 +54,7 @@ class Main extends Component {
         <GeneralInfo 
           onSubmitGeneralInfo={this.onSubmitGeneralInfo} // this.onSubmitGeneralInfo
           handleChangeGeneralInfo={this.handleChangeGeneralInfo}
-          value={generalInfo}
+          generalInfo={generalInfo}
         />
 
         <EducationalExp 
