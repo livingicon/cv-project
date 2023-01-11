@@ -25,8 +25,7 @@ class EducationalExp extends Component {
           </div>
         </form>
         <div className="btns">
-        <button type="submit">add</button>
-          <button type="button">edit</button>
+          <button type="submit">add</button>
           <button type="button">delete</button>
         </div>
       </div>

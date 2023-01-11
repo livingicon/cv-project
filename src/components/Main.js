@@ -26,15 +26,16 @@ class Main extends Component {
       generalInfo: {
         firstName: e.target.value,
         lastName: e.target.value,
-        email: e.target.value,
-        phoneNumber: e.target.value,
+        // email: e.target.value,
+        // phoneNumber: e.target.value,
       },
     });
+    // console.log(this.state.generalInfo.firstName);
   };
 
   onSubmitGeneralInfo = (e) => {
     e.preventDefault();
-    console.log("general info is go!")
+    console.log(this.state.generalInfo.firstName);
     // this.setState({
 
     // });
@@ -42,17 +43,18 @@ class Main extends Component {
 
   doSomething = (e) => {
     e.preventDefault();
-    console.log("do something please?");
+    console.log(this.state.generalInfo.firstName);
   }
 
   render() {
-    const { onSubmitGeneralInfo, doSomething } = this; // this.state (if state)
+    const { generalInfo } = this.state; // this.state (if state)
 
     return (
       <div className="main">
         <GeneralInfo 
-          onSubmitGeneralInfo={onSubmitGeneralInfo} // this.onSubmitGeneralInfo
-          // handleChangeGeneralInfo={handleChangeGeneralInfo}
+          onSubmitGeneralInfo={this.onSubmitGeneralInfo} // this.onSubmitGeneralInfo
+          handleChangeGeneralInfo={this.handleChangeGeneralInfo}
+          value={generalInfo}
         />
 
         <EducationalExp 
@@ -64,7 +66,7 @@ class Main extends Component {
         />
 
         <CVPreview 
-          doSomething={doSomething}
+          doSomething={this.doSomething}
         />
       </div>
     );

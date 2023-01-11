@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class GeneralInfo extends Component {
 
   render() {
-    const { firstName, lastName, onSubmitGeneralInfo } = this.props; // this.props.firstName
+    const { firstName, lastName, onSubmitGeneralInfo, handleChangeGeneralInfo} = this.props; // this.props.firstName
 
     return (
       <div className="forms">
@@ -14,7 +14,7 @@ class GeneralInfo extends Component {
           <div>
             <label htmlFor="firstName">first name</label>
             <input
-              onChange={this.handleChange}
+              onChange={handleChangeGeneralInfo}
               value={firstName}
               type="text" 
               id="firstName" 
@@ -27,7 +27,7 @@ class GeneralInfo extends Component {
           <div>
             <label htmlFor="lastName">last name</label>
             <input
-              onChange={this.handleChange}
+              onChange={handleChangeGeneralInfo}
               value={lastName}
               type="text" 
               id="lastName" 

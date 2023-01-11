@@ -29,7 +29,6 @@ class PracticalExp extends Component {
         </form>
         <div className="btns">
           <button type="submit">add</button>
-          <button type="button">edit</button>
           <button type="button">delete</button>
         </div>
       </div>
