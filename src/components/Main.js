@@ -38,7 +38,7 @@ class Main extends Component {
     // });
   }
 
-  doSomething = (e) => {
+  onSubmitPreviewCV = (e) => {
     e.preventDefault();
     console.log(this.state.firstName);
     console.log(this.state.lastName);
@@ -47,14 +47,14 @@ class Main extends Component {
   }
 
   render() {
-    const { generalInfo } = this.state; // this.state (if state)
+    // const { generalInfo } = this.state; 
 
     return (
       <div className="main">
         <GeneralInfo 
           onSubmitGeneralInfo={this.onSubmitGeneralInfo} // this.onSubmitGeneralInfo
           handleChangeGeneralInfo={this.handleChangeGeneralInfo}
-          generalInfo={generalInfo}
+          // generalInfo={generalInfo}
         />
 
         <EducationalExp 
@@ -66,7 +66,7 @@ class Main extends Component {
         />
 
         <CVPreview 
-          doSomething={this.doSomething}
+          doSomething={this.onSubmitPreviewCV}
         />
       </div>
     );
