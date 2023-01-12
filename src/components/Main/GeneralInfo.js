@@ -5,16 +5,16 @@ import React, { Component } from 'react';
 class GeneralInfo extends Component {
 
   render() {
-    const { firstName, lastName, email, phone, onSubmitGeneralInfo, handleChangeGeneralInfo} = this.props; // this.props.firstName
+    const { firstName, lastName, email, phone, handleChangeInput} = this.props; // this.props.firstName
 
     return (
       <div className="forms">
         <h2>General Information</h2>
-        <form onSubmit={onSubmitGeneralInfo}>
+        <form>
           <div>
             <label htmlFor="firstName">first name</label>
             <input
-              onChange={handleChangeGeneralInfo}
+              onChange={handleChangeInput}
               value={firstName}
               type="text" 
               id="firstName" 
@@ -27,7 +27,7 @@ class GeneralInfo extends Component {
           <div>
             <label htmlFor="lastName">last name</label>
             <input
-              onChange={handleChangeGeneralInfo}
+              onChange={handleChangeInput}
               value={lastName} 
               type="text" 
               id="lastName" 
@@ -40,7 +40,7 @@ class GeneralInfo extends Component {
           <div>
             <label htmlFor="user_email">email</label>
             <input 
-              onChange={handleChangeGeneralInfo}
+              onChange={handleChangeInput}
               value={email} 
               type="email" 
               id="user_email" 
@@ -51,7 +51,7 @@ class GeneralInfo extends Component {
           <div>
             <label htmlFor="phone_number">phone number</label>
             <input 
-              onChange={handleChangeGeneralInfo}
+              onChange={handleChangeInput}
               value={phone} 
               type="tel" 
               id="phone_number" 
@@ -60,7 +60,6 @@ class GeneralInfo extends Component {
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
               autoComplete="off" />
           </div>
-          <button type="submit">submit</button>
         </form>
     
       </div>

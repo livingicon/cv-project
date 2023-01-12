@@ -11,50 +11,30 @@ class Main extends Component {
     super();
 
     this.state = {
-      generalInfo: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: ""
-      },
-      setGeneralInfo: []
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
     };
   }
 
-  handleChangeGeneralInfo = (e) => {
+  handleChangeInput = (e) => {
     this.setState({
-        [e.target.name]: e.target.value, // dynamic keys
+      [e.target.name]: e.target.value, // dynamic keys
     });
   };
 
-  onSubmitGeneralInfo = (e) => {
-    e.preventDefault();
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phone);
-    // this.setState({
-
-    // });
-  }
-
   onSubmitPreviewCV = (e) => {
     e.preventDefault();
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phone);
+    console.log(this.state);
   }
 
   render() {
-    // const { generalInfo } = this.state; 
 
     return (
       <div className="main">
         <GeneralInfo 
-          onSubmitGeneralInfo={this.onSubmitGeneralInfo} // this.onSubmitGeneralInfo
-          handleChangeGeneralInfo={this.handleChangeGeneralInfo}
-          // generalInfo={generalInfo}
+          handleChangeInput={this.handleChangeInput}
         />
 
         <EducationalExp 
@@ -66,7 +46,7 @@ class Main extends Component {
         />
 
         <CVPreview 
-          doSomething={this.onSubmitPreviewCV}
+          onSubmitPreviewCV={this.onSubmitPreviewCV}
         />
       </div>
     );
