@@ -18,7 +18,12 @@ class Main extends Component {
       school: "",
       degree: "",
       degreeFrom: "",
-      degreeTo: ""
+      degreeTo: "",
+      position: "",
+      employer: "",
+      jobFrom: "",
+      jobTo: "",
+      tasks: ""
     };
   }
 
@@ -46,7 +51,7 @@ class Main extends Component {
         />
 
         <PracticalExp 
-        
+          handleChangeInput={this.handleChangeInput}
         />
 
         <CVPreview 
