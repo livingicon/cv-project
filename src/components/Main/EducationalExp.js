@@ -4,30 +4,56 @@ import React, { Component } from 'react';
  
 class EducationalExp extends Component {
   render() {
+    const { handleChangeInput, school, degree, degreeFrom, degreeTo } = this.props;
 
     return (
       <div className="forms">
         <h2>Educational Experience</h2>
         <form>
           <div>
-            <label htmlFor="school_name">school name</label>
-            <input type="text" id="school_name" name="schoolName" placeholder="university of example" autoComplete="off" />
+            <label htmlFor="school">organization administering degree or certification</label>
+            <input 
+              onChange={handleChangeInput}
+              value={school}
+              type="text" 
+              id="school" 
+              name="school"
+              placeholder="Purdue University"
+              autoComplete="off"
+            />
           </div>
           <div>
-            <label htmlFor="degree_program">degree or certification</label>
-            <input type="text" id="degree_program" name="degree" placeholder="bachelor of example in example" autoComplete="off"/>
+            <label htmlFor="degree">degree or certification</label>
+            <input
+              onChange={handleChangeInput}
+              value={degree}
+              type="text" 
+              id="degree" 
+              name="degree" 
+              placeholder="Bachelor of Arts in Computer Science" 
+              autoComplete="off"
+            />
           </div>
           <div>
-            <label htmlFor="began_study">began study</label>
-            <input type="date" id="began_study" name="beganStudy" />
-            <label htmlFor="completed_study">finished study</label>
-            <input type="date" id="completed_study" name="completeStudy" />
+            <label htmlFor="degreeFrom">from</label>
+            <input 
+              onChange={handleChangeInput}
+              value={degreeFrom}
+              type="date" 
+              id="degreeFrom" 
+              name="degreeFrom"
+            />
+            <label htmlFor="degreeTo">to</label>
+            <input 
+              onChange={handleChangeInput}
+              value={degreeTo}
+              type="date" 
+              id="degreeTo" 
+              name="degreeTo"
+            />
           </div>
+          <button className="btns" type="button">add more</button>
         </form>
-        <div className="btns">
-          <button type="submit">add</button>
-          <button type="button">delete</button>
-        </div>
       </div>
     );
   }

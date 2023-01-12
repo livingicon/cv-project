@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class GeneralInfo extends Component {
 
   render() {
-    const { firstName, lastName, email, phone, handleChangeInput} = this.props; // this.props.firstName
+    const { handleChangeInput, firstName, lastName, email, phone } = this.props; // this.props.firstName
 
     return (
       <div className="forms">
@@ -46,7 +46,8 @@ class GeneralInfo extends Component {
               id="user_email" 
               name="email" 
               placeholder="you@example.com" 
-              autoComplete="off"/>
+              autoComplete="off"
+            />
           </div>
           <div>
             <label htmlFor="phone_number">phone number</label>
@@ -58,7 +59,8 @@ class GeneralInfo extends Component {
               name="phone" 
               placeholder="123-456-7891" 
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-              autoComplete="off" />
+              autoComplete="off"
+            />
           </div>
         </form>
     

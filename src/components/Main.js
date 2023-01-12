@@ -15,6 +15,10 @@ class Main extends Component {
       lastName: "",
       email: "",
       phone: "",
+      school: "",
+      degree: "",
+      degreeFrom: "",
+      degreeTo: ""
     };
   }
 
@@ -38,7 +42,7 @@ class Main extends Component {
         />
 
         <EducationalExp 
-        
+          handleChangeInput={this.handleChangeInput}
         />
 
         <PracticalExp 
