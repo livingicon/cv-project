@@ -4,7 +4,7 @@ import React, { Component } from 'react';
  
 class EducationalExp extends Component {
   render() {
-    const { handleChangeInput, school, degree, degreeFrom, degreeTo } = this.props;
+    const { handleChangeInput, school, degree, degreeFrom, degreeTo, addEducationalExp } = this.props;
 
     return (
       <div className="forms">
@@ -52,7 +52,11 @@ class EducationalExp extends Component {
               name="degreeTo"
             />
           </div>
-          <button className="btns" type="button">add more</button>
+          <button 
+            onClick={addEducationalExp}
+            className="btns" 
+            type="submit"
+            >add more</button>
         </form>
       </div>
     );

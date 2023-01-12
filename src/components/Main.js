@@ -33,6 +33,11 @@ class Main extends Component {
     });
   };
 
+  addEducationalExp = (e) => { // make work for practicalExp too?
+    e.preventDefault();
+    console.log("add another college!");
+  }
+
   onSubmitPreviewCV = (e) => {
     e.preventDefault();
     console.log(this.state);
@@ -48,6 +53,7 @@ class Main extends Component {
 
         <EducationalExp 
           handleChangeInput={this.handleChangeInput}
+          addEducationalExp={this.addEducationalExp}
         />
 
         <PracticalExp 
