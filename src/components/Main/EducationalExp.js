@@ -56,7 +56,7 @@ class EducationalExp extends Component {
             onClick={addEducationalExp}
             className="btns" 
             type="submit"
-            >add more</button>
+            >add education</button>
         </form>
       </div>
     );

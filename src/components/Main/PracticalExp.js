@@ -10,7 +10,7 @@ class PracticalExp extends Component {
       <div className="forms">
         <h2>Practical Experience</h2>
         <form>
-        <div>
+          <div>
             <label htmlFor="position">job title</label>
             <input 
               onChange={handleChangeInput}
@@ -61,7 +61,7 @@ class PracticalExp extends Component {
               autoComplete="off"
             />
           </div>
-          <button className="btns" type="button">add more</button>
+          <button className="btns" type="button">add work</button>
         </form>
       </div>
 

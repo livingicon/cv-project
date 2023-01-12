@@ -23,7 +23,8 @@ class Main extends Component {
       employer: "",
       jobFrom: "",
       jobTo: "",
-      tasks: ""
+      tasks: "",
+      educationCount: 1
     };
   }
 
@@ -35,7 +36,10 @@ class Main extends Component {
 
   addEducationalExp = (e) => { // make work for practicalExp too?
     e.preventDefault();
-    console.log("add another college!");
+    this.setState({
+      educationCount: this.state.educationCount + 1 //
+    });
+    console.log(this.state.educationCount);
   }
 
   onSubmitPreviewCV = (e) => {
