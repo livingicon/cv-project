@@ -24,8 +24,15 @@ class Main extends Component {
       jobFrom: "",
       jobTo: "",
       tasks: "",
-      educationCount: 1
+      setEducation: [<EducationalExp key={0} />]
     };
+  }
+
+  addEducation = (e) => {
+    e.preventDefault();
+    this.setState({
+      setEducation: this.state.setEducation.concat(<EducationalExp key={this.state.setEducation.length} />)
+    });
   }
 
   handleChangeInput = (e) => {
@@ -33,14 +40,6 @@ class Main extends Component {
       [e.target.name]: e.target.value, // dynamic keys
     });
   };
-
-  addEducationalExp = (e) => { // make work for practicalExp too?
-    e.preventDefault();
-    this.setState({
-      educationCount: this.state.educationCount + 1 //
-    });
-    console.log(this.state.educationCount);
-  }
 
   onSubmitPreviewCV = (e) => {
     e.preventDefault();
@@ -55,10 +54,12 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
         />
 
-        <EducationalExp 
+        {this.state.setEducation}
+        {/* <EducationalExp 
           handleChangeInput={this.handleChangeInput}
-          addEducationalExp={this.addEducationalExp}
-        />
+          addEducation={this.addEducation}
+        /> */}
+        <button onClick={this.addEducation}>temporary add test</button>
 
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}

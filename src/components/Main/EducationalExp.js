@@ -3,13 +3,22 @@
 import React, { Component } from 'react';
  
 class EducationalExp extends Component {
+
+  duplicateForm = () => {
+    // console.log(this.state.educationCount);
+    for(let i=0; i<this.state.educationCount; i++) {
+      console.log("add form");
+    }
+  }
+
   render() {
-    const { handleChangeInput, school, degree, degreeFrom, degreeTo, addEducationalExp } = this.props;
+    const { handleChangeInput, school, degree, degreeFrom, degreeTo, addEducation } = this.props;
 
     return (
+
       <div className="forms">
         <h2>Educational Experience</h2>
-        <form>
+        <form id="education">
           <div>
             <label htmlFor="school">organization administering degree or certification</label>
             <input 
@@ -53,7 +62,7 @@ class EducationalExp extends Component {
             />
           </div>
           <button 
-            onClick={addEducationalExp}
+            onClick={addEducation}
             className="btns" 
             type="submit"
             >add education</button>
@@ -62,5 +71,5 @@ class EducationalExp extends Component {
     );
   }
 }
- 
+
 export default EducationalExp;
