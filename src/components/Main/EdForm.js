@@ -52,7 +52,7 @@ class EdForm extends Component {
               name={`degreeTo${edCount}`}
             />
           </div>
-          <button id={`btn${edCount}`} onClick={deleteEd}>remove</button>
+          <button data-btn={`${edCount}`} onClick={deleteEd}>remove</button>
         </form>
       </div>
     );
