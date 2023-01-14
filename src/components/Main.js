@@ -16,11 +16,9 @@ class Main extends Component {
       email: "",
       phone: "",
       school1: "",
-      school2: "",
-      school3: "", // do we need these?
-      degree: "",
-      degreeFrom: "",
-      degreeTo: "",
+      degree1: "",
+      degreeFrom1: "",
+      degreeTo1: "",
       position: "",
       employer: "",
       jobFrom: "",
@@ -45,17 +43,16 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput} />
       )
     });
-    console.log(this.state.setEd.length);
   }
 
   handleChangeInput = (e) => {
     this.setState({
-      [e.target.name]: e.target.value, // dynamic keys
+      [e.target.name]: e.target.value
     });
   };
 
   onSubmitPreviewCV = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // needs to not clear form
     console.log(this.state);
   }
 
@@ -67,12 +64,16 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
         />
 
+
+        <h2>Educational Experience</h2>
         {this.state.setEd}
         {/* <EducationalExp 
           handleChangeInput={this.handleChangeInput}
           addEd={this.addEd}
         /> */}
-        <button onClick={this.addEd}>temporary add test</button>
+        <button onClick={this.addEd}>add education</button>
+
+
 
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}

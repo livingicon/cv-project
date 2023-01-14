@@ -15,9 +15,9 @@ class EducationalExp extends Component {
     const { edCount, handleChangeInput, school, degree, degreeFrom, degreeTo, addEd } = this.props;
 
     return (
+      
 
       <div className="forms">
-        <h2>Educational Experience</h2>
         <form id="education">
           <div>
             <label htmlFor="school">organization administering degree or certification</label>
@@ -38,7 +38,7 @@ class EducationalExp extends Component {
               value={degree}
               type="text" 
               id="degree" 
-              name="degree" 
+              name={`degree${edCount}`} 
               placeholder="Bachelor of Arts in Computer Science" 
               autoComplete="off"
             />
@@ -50,7 +50,7 @@ class EducationalExp extends Component {
               value={degreeFrom}
               type="date" 
               id="degreeFrom" 
-              name="degreeFrom"
+              name={`degreeFrom${edCount}`}
             />
             <label htmlFor="degreeTo">to</label>
             <input 
@@ -58,14 +58,14 @@ class EducationalExp extends Component {
               value={degreeTo}
               type="date" 
               id="degreeTo" 
-              name="degreeTo"
+              name={`degreeTo${edCount}`}
             />
           </div>
-          <button 
+          {/* <button 
             onClick={addEd}
             className="btns" 
             type="submit"
-            >add education</button>
+            >add education</button> */}
         </form>
       </div>
     );
