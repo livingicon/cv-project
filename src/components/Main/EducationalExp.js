@@ -5,14 +5,14 @@ import React, { Component } from 'react';
 class EducationalExp extends Component {
 
   duplicateForm = () => {
-    // console.log(this.state.educationCount);
-    for(let i=0; i<this.state.educationCount; i++) {
+    // console.log(this.state.edCount);
+    for(let i=0; i<this.state.edCount; i++) {
       console.log("add form");
     }
   }
 
   render() {
-    const { handleChangeInput, school, degree, degreeFrom, degreeTo, addEducation } = this.props;
+    const { edCount, handleChangeInput, school, degree, degreeFrom, degreeTo, addEd } = this.props;
 
     return (
 
@@ -26,7 +26,7 @@ class EducationalExp extends Component {
               value={school}
               type="text" 
               id="school" 
-              name="school"
+              name={`school${edCount}`}
               placeholder="Purdue University"
               autoComplete="off"
             />
@@ -62,7 +62,7 @@ class EducationalExp extends Component {
             />
           </div>
           <button 
-            onClick={addEducation}
+            onClick={addEd}
             className="btns" 
             type="submit"
             >add education</button>

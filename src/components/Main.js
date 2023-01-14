@@ -10,12 +10,14 @@ class Main extends Component {
   constructor() {
     super();
 
-    this.state = {
+    this.state = { // do I need this?
       firstName: "",
       lastName: "",
       email: "",
       phone: "",
-      school: "",
+      school1: "",
+      school2: "",
+      school3: "", // do we need these?
       degree: "",
       degreeFrom: "",
       degreeTo: "",
@@ -24,15 +26,26 @@ class Main extends Component {
       jobFrom: "",
       jobTo: "",
       tasks: "",
-      setEducation: [<EducationalExp key={0} />]
+      edCount: 1, // need both
+      setEd: [<EducationalExp
+        key={0}
+        edCount={1} // need both
+        handleChangeInput={this.handleChangeInput} />]
     };
   }
 
-  addEducation = (e) => {
+  addEd = (e) => {
     e.preventDefault();
     this.setState({
-      setEducation: this.state.setEducation.concat(<EducationalExp key={this.state.setEducation.length} />)
+      edCount: this.state.setEd.length + 1,
+      setEd: this.state.setEd.concat(
+        <EducationalExp 
+          edCount={this.state.setEd.length + 1} 
+          key={this.state.setEd.length}
+          handleChangeInput={this.handleChangeInput} />
+      )
     });
+    console.log(this.state.setEd.length);
   }
 
   handleChangeInput = (e) => {
@@ -54,12 +67,12 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
         />
 
-        {this.state.setEducation}
+        {this.state.setEd}
         {/* <EducationalExp 
           handleChangeInput={this.handleChangeInput}
-          addEducation={this.addEducation}
+          addEd={this.addEd}
         /> */}
-        <button onClick={this.addEducation}>temporary add test</button>
+        <button onClick={this.addEd}>temporary add test</button>
 
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}
