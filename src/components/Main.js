@@ -5,6 +5,7 @@ import GeneralInfo from "./Main/GeneralInfo";
 import EducationalExp from "./Main/EducationalExp";
 import PracticalExp from "./Main/PracticalExp";
 import CVPreview from "./Main/CVPreview";
+import EdForm from "./Main/EdForm";
  
 class Main extends Component {
   constructor() {
@@ -25,23 +26,36 @@ class Main extends Component {
       jobTo: "",
       tasks: "",
       edCount: 1, // need both
-      setEd: [<EducationalExp
-        key={0}
-        edCount={1} // need both
-        handleChangeInput={this.handleChangeInput} />]
+      setEd: [
+        <EdForm
+          key={1}
+          edCount={1} // need both
+          handleChangeInput={this.handleChangeInput}
+          deleteEd={this.deleteEd} 
+        />
+      ]
     };
   }
 
   addEd = (e) => {
     e.preventDefault();
     this.setState({
-      edCount: this.state.setEd.length + 1,
+      edCount: this.state.edCount + 1,
       setEd: this.state.setEd.concat(
-        <EducationalExp 
-          edCount={this.state.setEd.length + 1} 
-          key={this.state.setEd.length}
-          handleChangeInput={this.handleChangeInput} />
+        <EdForm 
+          edCount={this.state.edCount + 1} 
+          key={this.state.edCount + 1}
+          handleChangeInput={this.handleChangeInput}
+          deleteEd={this.deleteEd} />
       )
+    });
+  }
+
+  deleteEd = (e) => {
+    e.preventDefault();
+    console.log(e.target.dataset.btn);
+    this.setState({
+      setEd: this.state.setEd.filter(index => this.state.setEd.indexOf(index) !== e.target.dataset.btn - 1)
     });
   }
 
@@ -51,7 +65,7 @@ class Main extends Component {
     });
   };
 
-  onSubmitPreviewCV = (e) => {
+  onSubmitPreviewCV = (e) => { // must setState (to remove deleted elements)
     e.preventDefault(); // needs to not clear form
     console.log(this.state);
   }
@@ -64,16 +78,12 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
         />
 
-
-        <h2>Educational Experience</h2>
-        {this.state.setEd}
-        {/* <EducationalExp 
+        <EducationalExp 
           handleChangeInput={this.handleChangeInput}
+          setEd={this.state.setEd}
           addEd={this.addEd}
-        /> */}
-        <button onClick={this.addEd}>add education</button>
-
-
+          deleteEd={this.deleteEd}
+        />
 
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}
