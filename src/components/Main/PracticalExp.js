@@ -5,13 +5,13 @@ import React, { Component } from 'react';
 class PracticalExp extends Component {
 
   render() {
-    const { setPrax, addPrax } = this.props;
+    const { setPrax, addForm } = this.props;
 
     return (
       <div>
         <h2>Practical Experience</h2>
         {setPrax} 
-        <button onClick={addPrax}>add experience</button>
+        <button onClick={addForm}>add experience</button>
       </div>
     );
   }

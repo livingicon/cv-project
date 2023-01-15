@@ -29,6 +29,8 @@ class Main extends Component {
       tasks: "",
       edCount: 1, // need both
       praxCount: 1, 
+      count: "",
+      set: "",
       setEd: [
         <EdForm
           key={1}
@@ -48,38 +50,51 @@ class Main extends Component {
     };
   }
 
-  addEd = (e) => { // make dynamic for addPraxEx too (write first then maybe?)
+  // let fleet;
+  // side === 0 ? fleet = playerFleet : fleet = enemyFleet;
+  // let id;
+  // grid === GameLoop.computerGrid ? id = "comp" : id = "play";
+
+  addForm = (e) => { // make dynamic for addPrax too (write first then maybe?)
     e.preventDefault();
-    this.setState({
-      edCount: this.state.edCount + 1,
-      setEd: this.state.setEd.concat(
-        <EdForm 
-          edCount={this.state.edCount + 1} 
-          key={this.state.edCount + 1}
-          handleChangeInput={this.handleChangeInput}
-          deleteEd={this.deleteEd} />
-      )
-    });
+    if(e.target.innerHTML === "add education") {
+      this.setState({
+        edCount: this.state.edCount + 1,
+        setEd: this.state.setEd.concat(
+          <EdForm 
+            edCount={this.state.edCount + 1} 
+            key={this.state.edCount + 1}
+            handleChangeInput={this.handleChangeInput}
+            deleteEd={this.deleteEd} />
+        )
+      });
+    } else {
+      this.setState({
+        praxCount: this.state.praxCount + 1,
+        setPrax: this.state.setPrax.concat(
+          <PraxForm 
+            praxCount={this.state.praxCount + 1} 
+            key={this.state.praxCount + 1}
+            handleChangeInput={this.handleChangeInput}
+            deletePrax={this.deletePrax} />
+        )
+      });
+    }
   }
 
-  addPrax = (e) => { // make dynamic for addPraxEx too (write first then maybe?)
-    e.preventDefault();
-    this.setState({
-      praxCount: this.state.praxCount + 1,
-      setPrax: this.state.setPrax.concat(
-        <PraxForm 
-          praxCount={this.state.praxCount + 1} 
-          key={this.state.praxCount + 1}
-          handleChangeInput={this.handleChangeInput}
-          deletePrax={this.deletePrax} />
-      )
-    });
-  }
-
-
-
-
-
+  // addPrax = (e) => { // make dynamic for addPraxEx too (write first then maybe?)
+  //   e.preventDefault();
+  //   this.setState({
+  //     praxCount: this.state.praxCount + 1,
+  //     setPrax: this.state.setPrax.concat(
+  //       <PraxForm 
+  //         praxCount={this.state.praxCount + 1} 
+  //         key={this.state.praxCount + 1}
+  //         handleChangeInput={this.handleChangeInput}
+  //         deletePrax={this.deletePrax} />
+  //     )
+  //   });
+  // }
 
   deleteEd = (e) => {
     e.preventDefault();
@@ -89,12 +104,7 @@ class Main extends Component {
   }
 
 
-
-
-
-
-
-  deletePrax = (e) => { // works unless button dataset matches
+  deletePrax = (e) => {
     e.preventDefault();
     this.setState({
       setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key)
@@ -126,14 +136,14 @@ class Main extends Component {
         <EducationalExp 
           handleChangeInput={this.handleChangeInput}
           setEd={this.state.setEd}
-          addEd={this.addEd}
+          addForm={this.addForm}
           deleteEd={this.deleteEd}
         />
 
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}
           setPrax={this.state.setPrax}
-          addPrax={this.addPrax}
+          addForm={this.addForm}
           deletePrax={this.deletePrax}
         />
 
