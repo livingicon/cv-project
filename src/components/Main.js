@@ -36,7 +36,7 @@ class Main extends Component {
           key={1}
           edCount={1} // need both
           handleChangeInput={this.handleChangeInput}
-          deleteEd={this.deleteEd} 
+          deleteForm={this.deleteForm} 
         />
       ],
       setPrax: [
@@ -44,7 +44,7 @@ class Main extends Component {
           key={1}
           praxCount={1} // need both
           handleChangeInput={this.handleChangeInput}
-          deletePrax={this.deletePrax}
+          deleteForm={this.deleteForm}
         />
       ]
     };
@@ -65,7 +65,7 @@ class Main extends Component {
             edCount={this.state.edCount + 1} 
             key={this.state.edCount + 1}
             handleChangeInput={this.handleChangeInput}
-            deleteEd={this.deleteEd} />
+            deleteForm={this.deleteForm} />
         )
       });
     } else {
@@ -76,39 +76,23 @@ class Main extends Component {
             praxCount={this.state.praxCount + 1} 
             key={this.state.praxCount + 1}
             handleChangeInput={this.handleChangeInput}
-            deletePrax={this.deletePrax} />
+            deleteForm={this.deleteForm} />
         )
       });
     }
   }
 
-  // addPrax = (e) => { // make dynamic for addPraxEx too (write first then maybe?)
-  //   e.preventDefault();
-  //   this.setState({
-  //     praxCount: this.state.praxCount + 1,
-  //     setPrax: this.state.setPrax.concat(
-  //       <PraxForm 
-  //         praxCount={this.state.praxCount + 1} 
-  //         key={this.state.praxCount + 1}
-  //         handleChangeInput={this.handleChangeInput}
-  //         deletePrax={this.deletePrax} />
-  //     )
-  //   });
-  // }
-
-  deleteEd = (e) => {
+  deleteForm = (e) => {
     e.preventDefault();
-    this.setState({
-      setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key)
-    });
-  }
-
-
-  deletePrax = (e) => {
-    e.preventDefault();
-    this.setState({
-      setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key)
-    });
+    if(e.target.innerHTML === "remove education"){
+      this.setState({
+        setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key)
+      });
+    } else {
+      this.setState({
+        setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key)
+      });
+    }
   }
 
   handleChangeInput = (e) => {
@@ -137,14 +121,14 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
           setEd={this.state.setEd}
           addForm={this.addForm}
-          deleteEd={this.deleteEd}
+          deleteForm={this.deleteForm}
         />
 
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}
           setPrax={this.state.setPrax}
           addForm={this.addForm}
-          deletePrax={this.deletePrax}
+          deleteForm={this.deleteForm}
         />
 
         <CVPreview 

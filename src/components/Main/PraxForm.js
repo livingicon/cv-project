@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class PraxForm extends Component {
 
   render() {
-    const { praxCount, handleChangeInput, position, employer, jobFrom, jobTo, tasks, deletePrax } = this.props;
+    const { praxCount, handleChangeInput, position, employer, jobFrom, jobTo, tasks, deleteForm } = this.props;
 
     return (
       <div className="forms">
@@ -61,7 +61,7 @@ class PraxForm extends Component {
               autoComplete="off"
             />
           </div>
-          <button data-btn={`${praxCount}`} onClick={deletePrax}>remove</button>
+          <button data-btn={`${praxCount}`} onClick={deleteForm}>remove experience</button>
         </form>
       </div>
 

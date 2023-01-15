@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class EdForm extends Component {
 
   render() {
-    const { edCount, handleChangeInput, school, degree, degreeFrom, degreeTo, deleteEd } = this.props;
+    const { edCount, handleChangeInput, school, degree, degreeFrom, degreeTo, deleteForm } = this.props;
 
     return (
       <div className="forms">
@@ -52,7 +52,7 @@ class EdForm extends Component {
               name={`degreeTo${edCount}`}
             />
           </div>
-          <button data-btn={`${edCount}`} onClick={deleteEd}>remove</button>
+          <button data-btn={`${edCount}`} onClick={deleteForm}>remove education</button>
         </form>
       </div>
     );
