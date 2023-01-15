@@ -1,4 +1,4 @@
-// EducationalInfo.js
+// EducationalExp.js
 
 import React, { Component } from 'react';
  

@@ -6,6 +6,8 @@ import EducationalExp from "./Main/EducationalExp";
 import PracticalExp from "./Main/PracticalExp";
 import CVPreview from "./Main/CVPreview";
 import EdForm from "./Main/EdForm";
+import PraxForm from "./Main/PraxForm";
+
  
 class Main extends Component {
   constructor() {
@@ -33,11 +35,19 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
           deleteEd={this.deleteEd} 
         />
+      ],
+      setPrax: [
+        <PraxForm 
+          key={1}
+          edCount={1} // need both
+          handleChangeInput={this.handleChangeInput}
+          deletePrax={this.deletePrax}
+        />
       ]
     };
   }
 
-  addEd = (e) => {
+  addEd = (e) => { // make dynamic for addPraxEx too (write first then maybe?)
     e.preventDefault();
     this.setState({
       edCount: this.state.edCount + 1,
@@ -51,11 +61,33 @@ class Main extends Component {
     });
   }
 
+  addPrax = (e) => { // make dynamic for addPraxEx too (write first then maybe?)
+    e.preventDefault();
+    this.setState({
+      edCount: this.state.edCount + 1,
+      setPrax: this.state.setPrax.concat(
+        <PraxForm 
+          edCount={this.state.edCount + 1} 
+          key={this.state.edCount + 1}
+          handleChangeInput={this.handleChangeInput}
+          deletePrax={this.deletePrax} />
+      )
+    });
+  }
+
   deleteEd = (e) => {
     e.preventDefault();
     console.log(e.target.dataset.btn);
     this.setState({
       setEd: this.state.setEd.filter(index => this.state.setEd.indexOf(index) !== e.target.dataset.btn - 1)
+    });
+  }
+
+  deletePrax = (e) => {
+    e.preventDefault();
+    console.log(e.target.dataset.btn);
+    this.setState({
+      setPrax: this.state.setPrax.filter(index => this.state.setPrax.indexOf(index) !== e.target.dataset.btn - 1)
     });
   }
 
@@ -68,6 +100,9 @@ class Main extends Component {
   onSubmitPreviewCV = (e) => { // must setState (to remove deleted elements)
     e.preventDefault(); // needs to not clear form
     console.log(this.state);
+    // this.setState({
+
+    // });
   }
 
   render() {
@@ -87,6 +122,9 @@ class Main extends Component {
 
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}
+          setPrax={this.state.setPrax}
+          addPrax={this.addPrax}
+          deletePrax={this.deletePrax}
         />
 
         <CVPreview 
