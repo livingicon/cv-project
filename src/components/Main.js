@@ -13,28 +13,26 @@ class Main extends Component {
   constructor() {
     super();
 
-    this.state = { // do I need this?
+    this.state = {
       firstName: "",
       lastName: "",
       email: "",
       phone: "",
-      school1: "",
-      degree1: "",
-      degreeFrom1: "",
-      degreeTo1: "",
-      position: "",
-      employer: "",
-      jobFrom: "",
-      jobTo: "",
-      tasks: "",
-      edCount: 1, // need both
+      // school1: "",
+      // degree1: "",
+      // degreeFrom1: "",
+      // degreeTo1: "",
+      // position: "",
+      // employer: "",
+      // jobFrom: "",
+      // jobTo: "",
+      // tasks: "",
+      edCount: 1,
       praxCount: 1, 
-      count: "",
-      set: "",
       setEd: [
         <EdForm
           key={1}
-          edCount={1} // need both
+          edCount={1}
           handleChangeInput={this.handleChangeInput}
           deleteForm={this.deleteForm} 
         />
@@ -42,7 +40,7 @@ class Main extends Component {
       setPrax: [
         <PraxForm 
           key={1}
-          praxCount={1} // need both
+          praxCount={1}
           handleChangeInput={this.handleChangeInput}
           deleteForm={this.deleteForm}
         />
@@ -50,12 +48,13 @@ class Main extends Component {
     };
   }
 
-  // let fleet;
-  // side === 0 ? fleet = playerFleet : fleet = enemyFleet;
-  // let id;
-  // grid === GameLoop.computerGrid ? id = "comp" : id = "play";
+  handleChangeInput = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
-  addForm = (e) => { // make dynamic for addPrax too (write first then maybe?)
+  addForm = (e) => { // still could be dry-er
     e.preventDefault();
     if(e.target.innerHTML === "add education") {
       this.setState({
@@ -84,6 +83,8 @@ class Main extends Component {
 
   deleteForm = (e) => {
     e.preventDefault();
+    // delete from state
+    console.log(e.target.dataset.btn);
     if(e.target.innerHTML === "remove education"){
       this.setState({
         setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key)
@@ -95,15 +96,12 @@ class Main extends Component {
     }
   }
 
-  handleChangeInput = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
   onSubmitPreviewCV = (e) => { // must setState (to remove deleted elements)
-    e.preventDefault(); // needs to not clear form
+    e.preventDefault(); // doesn't clear form unless there are deletions (needs to stop)
     console.log(this.state);
+    this.state.setEd.map(form => console.log(form.key)); // working
+    // not delete out the school(form.key)
+    // let currentState = this.state;
     // this.setState({
 
     // });
