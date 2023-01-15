@@ -28,6 +28,7 @@ class Main extends Component {
       jobTo: "",
       tasks: "",
       edCount: 1, // need both
+      praxCount: 1, 
       setEd: [
         <EdForm
           key={1}
@@ -39,7 +40,7 @@ class Main extends Component {
       setPrax: [
         <PraxForm 
           key={1}
-          edCount={1} // need both
+          praxCount={1} // need both
           handleChangeInput={this.handleChangeInput}
           deletePrax={this.deletePrax}
         />
@@ -64,30 +65,39 @@ class Main extends Component {
   addPrax = (e) => { // make dynamic for addPraxEx too (write first then maybe?)
     e.preventDefault();
     this.setState({
-      edCount: this.state.edCount + 1,
+      praxCount: this.state.praxCount + 1,
       setPrax: this.state.setPrax.concat(
         <PraxForm 
-          edCount={this.state.edCount + 1} 
-          key={this.state.edCount + 1}
+          praxCount={this.state.praxCount + 1} 
+          key={this.state.praxCount + 1}
           handleChangeInput={this.handleChangeInput}
           deletePrax={this.deletePrax} />
       )
     });
   }
 
+
+
+
+
+
   deleteEd = (e) => {
     e.preventDefault();
-    console.log(e.target.dataset.btn);
     this.setState({
-      setEd: this.state.setEd.filter(index => this.state.setEd.indexOf(index) !== e.target.dataset.btn - 1)
+      setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key)
     });
   }
 
-  deletePrax = (e) => {
+
+
+
+
+
+
+  deletePrax = (e) => { // works unless button dataset matches
     e.preventDefault();
-    console.log(e.target.dataset.btn);
     this.setState({
-      setPrax: this.state.setPrax.filter(index => this.state.setPrax.indexOf(index) !== e.target.dataset.btn - 1)
+      setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key)
     });
   }
 

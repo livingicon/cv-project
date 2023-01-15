@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class PraxForm extends Component {
 
   render() {
-    const { edCount, handleChangeInput, position, employer, jobFrom, jobTo, tasks, deletePrax } = this.props;
+    const { praxCount, handleChangeInput, position, employer, jobFrom, jobTo, tasks, deletePrax } = this.props;
 
     return (
       <div className="forms">
@@ -17,7 +17,7 @@ class PraxForm extends Component {
               value={position}
               type="text" 
               id="position" 
-              name={`position${edCount}`} 
+              name={`position${praxCount}`} 
               autoComplete="off"
             />
           </div>
@@ -28,7 +28,7 @@ class PraxForm extends Component {
               value={employer}
               type="text" 
               id="employer" 
-              name={`employer${edCount}`}
+              name={`employer${praxCount}`}
               autoComplete="off" 
             />
           </div>
@@ -39,7 +39,7 @@ class PraxForm extends Component {
               value={jobFrom}
               type="date" 
               id="jobFrom" 
-              name={`jobFrom${edCount}`}
+              name={`jobFrom${praxCount}`}
             />
             <label htmlFor="jobTo">to</label>
             <input 
@@ -47,7 +47,7 @@ class PraxForm extends Component {
               value={jobTo}
               type="date" 
               id="jobTo" 
-              name={`jobTo${edCount}`}
+              name={`jobTo${praxCount}`}
             />
           </div>
           <div>
@@ -57,11 +57,11 @@ class PraxForm extends Component {
               value={tasks}
               type="text" 
               id="tasks" 
-              name={`tasks${edCount}`} 
+              name={`tasks${praxCount}`} 
               autoComplete="off"
             />
           </div>
-          <button data-btn={`${edCount}`} onClick={deletePrax}>remove</button>
+          <button data-btn={`${praxCount}`} onClick={deletePrax}>remove</button>
         </form>
       </div>
 

@@ -8,7 +8,7 @@ class EdForm extends Component {
     const { edCount, handleChangeInput, school, degree, degreeFrom, degreeTo, deleteEd } = this.props;
 
     return (
-      <div className="forms">
+      <div className="forms" id={`${edCount}`}>
         <form id="education">
           <div>
             <label htmlFor="school">organization administering degree or certification</label>
