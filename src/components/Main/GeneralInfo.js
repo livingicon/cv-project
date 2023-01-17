@@ -9,7 +9,6 @@ class GeneralInfo extends Component {
 
     return (
       <div className="forms">
-        <h2>General Information</h2>
         <form>
           <div>
             <label htmlFor="firstName">first name</label>

@@ -9,7 +9,6 @@ class PracticalExp extends Component {
 
     return (
       <div>
-        <h2>Practical Experience</h2>
         {setPrax} 
         <button onClick={addForm}>add experience</button>
       </div>

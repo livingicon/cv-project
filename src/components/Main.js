@@ -48,9 +48,10 @@ class Main extends Component {
   toggleHidden = (e) => {
     e.preventDefault();
     e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : e.target.innerHTML = 'Preview CV';
-    this.setState({
-      isHidden: !this.state.isHidden
-    })
+    // this.setState({
+    //   isHidden: !this.state.isHidden
+    // })
+    // add paragraphs for text and toggle between them and the forms?
   }
 
   handleChangeInput = (e) => {
@@ -118,17 +119,18 @@ class Main extends Component {
 
     return (
       <div className="main">
-        <GeneralInfo 
+        <h2>General Information</h2>
+        <GeneralInfo // make hidable and replaceable?
           handleChangeInput={this.handleChangeInput}
         />
-
+        <h2>Educational Experience</h2>
         <EducationalExp 
           handleChangeInput={this.handleChangeInput}
           setEd={this.state.setEd}
           addForm={this.addForm}
           deleteForm={this.deleteForm}
         />
-
+        <h2>Practical Experience</h2>
         <PracticalExp 
           handleChangeInput={this.handleChangeInput}
           setPrax={this.state.setPrax}

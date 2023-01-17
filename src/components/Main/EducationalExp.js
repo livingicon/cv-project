@@ -9,7 +9,6 @@ class EducationalExp extends Component {
 
     return (
       <div>
-        <h2>Educational Experience</h2>
         {setEd} 
         <button onClick={addForm}>add education</button>
       </div>
