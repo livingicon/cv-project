@@ -41,13 +41,13 @@ class Main extends Component {
     e.preventDefault();
     e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : e.target.innerHTML = 'Preview CV';
     this.setState({
-      previewState: this.state.previewState.concat(Object.entries(this.state).filter(object => object[1] !== ""))
+      previewState: this.state.previewState.concat(Object.entries(this.state).filter(object => object[1] !== "")),
+      isHidden: !this.state.isHidden
     })
   }
 
   toggleHidden = (e) => {
     e.preventDefault();
-    e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : e.target.innerHTML = 'Preview CV';
     // this.setState({
     //   isHidden: !this.state.isHidden
     // })
@@ -120,29 +120,30 @@ class Main extends Component {
     return (
       <div className="main">
         <h2>General Information</h2>
-        <GeneralInfo // make hidable and replaceable?
-          handleChangeInput={this.handleChangeInput}
-        />
+        {this.state.isHidden && <GeneralInfo
+          handleChangeInput={this.handleChangeInput} />}
+
         <h2>Educational Experience</h2>
-        <EducationalExp 
+        {this.state.isHidden && <EducationalExp 
           handleChangeInput={this.handleChangeInput}
           setEd={this.state.setEd}
           addForm={this.addForm}
           deleteForm={this.deleteForm}
-        />
+        /> }
+
         <h2>Practical Experience</h2>
-        <PracticalExp 
+        {this.state.isHidden &&<PracticalExp 
           handleChangeInput={this.handleChangeInput}
           setPrax={this.state.setPrax}
           addForm={this.addForm}
           deleteForm={this.deleteForm}
-        />
+        /> }
 
         <CVPreview 
           onSubmitPreviewCV={this.onSubmitPreviewCV}
           toggleHidden={this.toggleHidden}
         />
-        <button onClick={this.checkState}>test state</button>
+        {/* <button onClick={this.checkState}>test state</button> */}
       </div>
     );
   }
