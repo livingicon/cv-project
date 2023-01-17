@@ -10,25 +10,10 @@ import PraxForm from "./Main/PraxForm";
 
  
 class Main extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      // school1: "",
-      // degree1: "",
-      // degreeFrom1: "",
-      // degreeTo1: "",
-      // position: "",
-      // employer: "",
-      // jobFrom: "",
-      // jobTo: "",
-      // tasks: "",
-      edCount: 1,
-      praxCount: 1, 
       setEd: [
         <EdForm
           key={1}
@@ -44,13 +29,29 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
           deleteForm={this.deleteForm}
         />
-      ]
+      ],
+      // setGeneralInfo: {
+      //   firstName: "",
+      //   lastName: "",
+      //   email: "",
+      //   phone: ""
+      // },
+      // setPraxExp: {
+      //   position: "",
+      //   employer: "",
+      //   jobFrom: "",
+      //   jobTo: "",
+      //   tasks: ""
+      // },
+      edCount: 1,
+      praxCount: 1
     };
   }
 
   handleChangeInput = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+
     });
   };
 
@@ -81,30 +82,51 @@ class Main extends Component {
     }
   }
 
+
+
+
+
+
+
   deleteForm = (e) => {
     e.preventDefault();
-    // delete from state
-    console.log(e.target.dataset.btn);
     if(e.target.innerHTML === "remove education"){
       this.setState({
-        setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key)
+        setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
+        [`school${e.target.dataset.btn}`]: "",
+        [`degree${e.target.dataset.btn}`]: "",
+        [`degreeFrom${e.target.dataset.btn}`]: "",
+        [`degreeTo${e.target.dataset.btn}`]: ""
       });
     } else {
       this.setState({
-        setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key)
+        setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key),
+        [`position${e.target.dataset.btn}`]: "",
+        [`employer${e.target.dataset.btn}`]: "",
+        [`jobFrom${e.target.dataset.btn}`]: "",
+        [`jobTo${e.target.dataset.btn}`]: "",
+        [`tasks${e.target.dataset.btn}`]: ""
       });
     }
   }
+
+
+
+
+
+
+
 
   onSubmitPreviewCV = (e) => { // must setState (to remove deleted elements)
     e.preventDefault(); // doesn't clear form unless there are deletions (needs to stop)
     console.log(this.state);
     this.state.setEd.map(form => console.log(form.key)); // working
-    // not delete out the school(form.key)
-    // let currentState = this.state;
     // this.setState({
-
-    // });
+    //   setGeneralInfo: {
+    //     firstName: this.state.setGeneralInfo.firstName.concat(this.state.firstName)
+    //   }
+    // })
+    // console.log(this.state.setGeneralInfo.firstName);
   }
 
   render() {
@@ -136,5 +158,5 @@ class Main extends Component {
     );
   }
 }
- 
+
 export default Main;
