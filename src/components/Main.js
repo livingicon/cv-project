@@ -14,6 +14,10 @@ class Main extends Component {
     super(props);
 
     this.state = {
+      isHidden: true,
+      edCount: 1,
+      praxCount: 1,
+      previewState: [],
       setEd: [
         <EdForm
           key={1}
@@ -29,24 +33,24 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput}
           deleteForm={this.deleteForm}
         />
-      ],
-      // setGeneralInfo: {
-      //   firstName: "",
-      //   lastName: "",
-      //   email: "",
-      //   phone: ""
-      // },
-      // setPraxExp: {
-      //   position: "",
-      //   employer: "",
-      //   jobFrom: "",
-      //   jobTo: "",
-      //   tasks: ""
-      // },
-      edCount: 1,
-      praxCount: 1,
-      previewState: []
+      ]
     };
+  }
+
+  onSubmitPreviewCV = (e) => { 
+    e.preventDefault();
+    e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : e.target.innerHTML = 'Preview CV';
+    this.setState({
+      previewState: this.state.previewState.concat(Object.entries(this.state).filter(object => object[1] !== ""))
+    })
+  }
+
+  toggleHidden = (e) => {
+    e.preventDefault();
+    e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : e.target.innerHTML = 'Preview CV';
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   handleChangeInput = (e) => {
@@ -83,12 +87,6 @@ class Main extends Component {
     }
   }
 
-
-
-
-
-
-
   deleteForm = (e) => {
     e.preventDefault();
     if(e.target.innerHTML === "remove education"){
@@ -111,18 +109,9 @@ class Main extends Component {
     }
   }
 
-
   checkState = (e) => {
     e.preventDefault();
     console.log(this.state);
-  }
-
-
-  onSubmitPreviewCV = (e) => { 
-    e.preventDefault();
-    this.setState({
-      previewState: this.state.previewState.concat(Object.entries(this.state).filter(object => object[1] !== ""))
-    })
   }
 
   render() {
@@ -149,6 +138,7 @@ class Main extends Component {
 
         <CVPreview 
           onSubmitPreviewCV={this.onSubmitPreviewCV}
+          toggleHidden={this.toggleHidden}
         />
         <button onClick={this.checkState}>test state</button>
       </div>
