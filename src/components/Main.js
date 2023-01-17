@@ -44,7 +44,8 @@ class Main extends Component {
       //   tasks: ""
       // },
       edCount: 1,
-      praxCount: 1
+      praxCount: 1,
+      previewState: []
     };
   }
 
@@ -111,22 +112,17 @@ class Main extends Component {
   }
 
 
-
-
-
-
-
-
-  onSubmitPreviewCV = (e) => { // must setState (to remove deleted elements)
-    e.preventDefault(); // doesn't clear form unless there are deletions (needs to stop)
+  checkState = (e) => {
+    e.preventDefault();
     console.log(this.state);
-    this.state.setEd.map(form => console.log(form.key)); // working
-    // this.setState({
-    //   setGeneralInfo: {
-    //     firstName: this.state.setGeneralInfo.firstName.concat(this.state.firstName)
-    //   }
-    // })
-    // console.log(this.state.setGeneralInfo.firstName);
+  }
+
+
+  onSubmitPreviewCV = (e) => { 
+    e.preventDefault();
+    this.setState({
+      previewState: this.state.previewState.concat(Object.entries(this.state).filter(object => object[1] !== ""))
+    })
   }
 
   render() {
@@ -154,6 +150,7 @@ class Main extends Component {
         <CVPreview 
           onSubmitPreviewCV={this.onSubmitPreviewCV}
         />
+        <button onClick={this.checkState}>test state</button>
       </div>
     );
   }
