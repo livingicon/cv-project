@@ -2,6 +2,7 @@
  
 import React, { Component } from 'react';
 import GeneralInfo from "./Main/GeneralInfo";
+import GeneralInfoCV from "./Main/GeneralCV";
 import EducationalExp from "./Main/EducationalExp";
 import PracticalExp from "./Main/PracticalExp";
 import CVPreview from "./Main/CVPreview";
@@ -122,6 +123,7 @@ class Main extends Component {
         <h2>General Information</h2>
         {this.state.isHidden && <GeneralInfo
           handleChangeInput={this.handleChangeInput} />}
+        {!this.state.isHidden && <GeneralInfoCV />}
 
         <h2>Educational Experience</h2>
         {this.state.isHidden && <EducationalExp 
