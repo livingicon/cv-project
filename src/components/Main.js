@@ -2,7 +2,7 @@
  
 import React, { Component } from 'react';
 import GeneralInfo from "./Main/GeneralInfo";
-import GeneralInfoCV from "./Main/GeneralCV";
+import GeneralCV from "./Main/GeneralCV";
 import EducationalExp from "./Main/EducationalExp";
 import PracticalExp from "./Main/PracticalExp";
 import CVPreview from "./Main/CVPreview";
@@ -11,8 +11,8 @@ import PraxForm from "./Main/PraxForm";
 
  
 class Main extends Component {
-  constructor(props) {
-    super(props);
+  constructor() { // does it need (props) here?
+    super();
 
     this.state = {
       isHidden: true,
@@ -44,7 +44,7 @@ class Main extends Component {
       e.target.innerHTML = 'Preview CV';
     this.setState({
       isHidden: !this.state.isHidden,
-      previewState: this.state.previewState.concat
+      previewState: this.state.previewState.concat // how to not double on every click?
         (Object.entries(this.state).filter(obj => obj[1] !== '' && obj[0] !== 'isHidden' 
           && obj[0] !== 'edCount' && obj[0] !== 'praxCount' && obj[0] !== 'previewState'
           && obj[0] !== 'setEd' && obj[0] !== 'setPrax'))
@@ -108,7 +108,7 @@ class Main extends Component {
   }
 
   checkState = (e) => { // for testing...delete later
-    console.log(this.state.previewState);
+    console.log(this.state);
   }
 
   render() {
@@ -120,11 +120,17 @@ class Main extends Component {
         />
 
         <h2>General Information</h2>
+
         {this.state.isHidden && <GeneralInfo
-          handleChangeInput={this.handleChangeInput} />}
-        {!this.state.isHidden && <GeneralInfoCV checkState={this.checkState} />}
+          handleChangeInput={this.handleChangeInput} />} 
+
+        {!this.state.isHidden && <GeneralCV 
+          checkState={this.checkState}
+          previewState={this.state.previewState}
+          />}
 
         <h2>Educational Experience</h2>
+
         {this.state.isHidden && <EducationalExp 
           handleChangeInput={this.handleChangeInput}
           setEd={this.state.setEd}
