@@ -43,9 +43,11 @@ class Main extends Component {
     e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : 
       e.target.innerHTML = 'Preview CV';
     this.setState({
+      isHidden: !this.state.isHidden,
       previewState: this.state.previewState.concat
-        (Object.entries(this.state).filter(object => object[1] !== "")),
-      isHidden: !this.state.isHidden
+        (Object.entries(this.state).filter(obj => obj[1] !== '' && obj[0] !== 'isHidden' 
+          && obj[0] !== 'edCount' && obj[0] !== 'praxCount' && obj[0] !== 'previewState'
+          && obj[0] !== 'setEd' && obj[0] !== 'setPrax'))
     })
   }
 
@@ -105,19 +107,22 @@ class Main extends Component {
     }
   }
 
+  checkState = (e) => { // for testing...delete later
+    console.log(this.state.previewState);
+  }
+
   render() {
 
     return (
       <div className="main">
         <CVPreview 
           onSubmitPreviewCV={this.onSubmitPreviewCV}
-          toggleHidden={this.toggleHidden}
         />
 
         <h2>General Information</h2>
         {this.state.isHidden && <GeneralInfo
           handleChangeInput={this.handleChangeInput} />}
-        {!this.state.isHidden && <GeneralInfoCV />}
+        {!this.state.isHidden && <GeneralInfoCV checkState={this.checkState} />}
 
         <h2>Educational Experience</h2>
         {this.state.isHidden && <EducationalExp 
