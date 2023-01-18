@@ -40,19 +40,13 @@ class Main extends Component {
 
   onSubmitPreviewCV = (e) => { 
     e.preventDefault();
-    e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : e.target.innerHTML = 'Preview CV';
+    e.target.innerHTML === 'Preview CV' ? e.target.innerHTML = 'Edit CV' : 
+      e.target.innerHTML = 'Preview CV';
     this.setState({
-      previewState: this.state.previewState.concat(Object.entries(this.state).filter(object => object[1] !== "")),
+      previewState: this.state.previewState.concat
+        (Object.entries(this.state).filter(object => object[1] !== "")),
       isHidden: !this.state.isHidden
     })
-  }
-
-  toggleHidden = (e) => {
-    e.preventDefault();
-    // this.setState({
-    //   isHidden: !this.state.isHidden
-    // })
-    // add paragraphs for text and toggle between them and the forms?
   }
 
   handleChangeInput = (e) => {
@@ -62,7 +56,7 @@ class Main extends Component {
     });
   };
 
-  addForm = (e) => { // still could be dry-er
+  addForm = (e) => { // still could be dry-er maybe? 
     e.preventDefault();
     if(e.target.innerHTML === "add education") {
       this.setState({
@@ -111,15 +105,15 @@ class Main extends Component {
     }
   }
 
-  checkState = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-  }
-
   render() {
 
     return (
       <div className="main">
+        <CVPreview 
+          onSubmitPreviewCV={this.onSubmitPreviewCV}
+          toggleHidden={this.toggleHidden}
+        />
+
         <h2>General Information</h2>
         {this.state.isHidden && <GeneralInfo
           handleChangeInput={this.handleChangeInput} />}
@@ -141,11 +135,6 @@ class Main extends Component {
           deleteForm={this.deleteForm}
         /> }
 
-        <CVPreview 
-          onSubmitPreviewCV={this.onSubmitPreviewCV}
-          toggleHidden={this.toggleHidden}
-        />
-        {/* <button onClick={this.checkState}>test state</button> */}
       </div>
     );
   }
