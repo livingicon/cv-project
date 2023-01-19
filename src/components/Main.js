@@ -20,7 +20,8 @@ class Main extends Component {
       isHidden: true,
       edCount: 1,
       praxCount: 1,
-      previewState: [],
+      edList: [],
+      praxList: [],
       setEd: [
         <EdForm
           key={1}
@@ -42,15 +43,14 @@ class Main extends Component {
 
   onSubmitPreviewCV = (e) => { 
     e.preventDefault();
-    // check if any input empty (and remove this.state.firstname from below)
     if (this.state.firstName && this.state.isHidden) {
       e.target.innerHTML = 'Edit CV'
       this.setState({
         isHidden: !this.state.isHidden,
-        previewState: this.state.previewState.concat // how to not double on every click?
-          (Object.entries(this.state).filter(obj => obj[1] !== '' && obj[0] !== 'isHidden' 
-            && obj[0] !== 'edCount' && obj[0] !== 'praxCount' && obj[0] !== 'previewState'
-            && obj[0] !== 'setEd' && obj[0] !== 'setPrax'))
+        edList: this.state.setEd.map(obj => this.state.edList.concat(Object.entries(this.state)
+          .filter(entry => entry[0] === `school${obj.key}`))),
+        praxList: this.state.setPrax.map(obj => this.state.praxList.concat(Object.entries(this.state)
+        .filter(entry => entry[0] === `position${obj.key}`)))
       })
     } else if (!this.state.isHidden) {
       e.target.innerHTML = 'Preview CV';
@@ -120,6 +120,12 @@ class Main extends Component {
     console.log(this.state);
   }
 
+  match = (info) => {
+    for(let i = 0 ; i < this.state.previewState.length; i++) {
+      this.state.previewState[i][0] === `${info}` && console.log(this.state.previewState.indexOf(this.state.previewState[i]));
+    }
+  }
+
   render() {
 
     return (
@@ -134,7 +140,11 @@ class Main extends Component {
           handleChangeInput={this.handleChangeInput} />} 
         {!this.state.isHidden && <GeneralCV 
           checkState={this.checkState}
-          previewState={this.state.previewState} />}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          email={this.state.email}
+          phone={this.state.phone}
+          />}
 
         <h2>Educational Experience</h2>
 
@@ -144,8 +154,8 @@ class Main extends Component {
           addForm={this.addForm}
           deleteForm={this.deleteForm} /> }
         {!this.state.isHidden && <EducationCV 
-          checkState={this.checkState}
-          previewState={this.state.previewState} />}
+          edList={this.edList}
+          />}
         
 
         <h2>Practical Experience</h2>
@@ -155,7 +165,6 @@ class Main extends Component {
           addForm={this.addForm}
           deleteForm={this.deleteForm} /> }
         {!this.state.isHidden && <PracticalCV 
-          checkState={this.checkState}
           previewState={this.state.previewState} />}
 
       </div>

@@ -5,15 +5,11 @@ import React, { Component } from 'react';
 class EducationCV extends Component {
 
   render() {
-    const { edCount, previewState, checkState, lastName, email, phone } = this.props;
+    const { school, edCount, previewState, checkState, lastName, email, phone } = this.props;
 
     return (
       <div className="cvPreview">
-        {/* why not? Just because asynchronous? */}
-        <p>{`${previewState[0][1]} ${previewState[1][1]}`}</p>
-        <p>{`${previewState[2][1]}`}</p>
-        <p>{`${previewState[3][1]}`}</p>
-        <button onClick={checkState}>check state</button>
+        <h4>here</h4>
       </div>
     );
   }
