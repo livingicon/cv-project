@@ -20,7 +20,7 @@ class Main extends Component {
       isHidden: true,
       edCount: 1,
       praxCount: 1,
-      edList: [],
+      edList: {},
       praxList: [],
       setEd: [
         <EdForm
@@ -43,12 +43,21 @@ class Main extends Component {
 
   onSubmitPreviewCV = (e) => { 
     e.preventDefault();
-    if (this.state.firstName && this.state.isHidden) {
+    if (this.state.firstName && this.state.isHidden) { // change later (alert?)
       e.target.innerHTML = 'Edit CV'
+      const orderedSchool = {};
+      const schoolOrder = ['school1','school2','school3','school4','school5','school6'];
+      this.state.setEd.map(obj => {
+        for(let i=0; i<=schoolOrder.length; i++) {
+          orderedSchool[schoolOrder[obj.key - 1]] = this.state[`school${obj.key}`];
+        }
+      })
+
+      console.log(orderedSchool);
       this.setState({
         isHidden: !this.state.isHidden,
-        edList: this.state.setEd.map(obj => this.state.edList.concat(Object.entries(this.state)
-          .filter(entry => entry[0] === `school${obj.key}`))),
+        // edList: this.state.setEd.map(obj => this.state.edList.concat(Object.entries(this.state) // nesting too deep
+        //   .filter(entry => entry[0] === `school${obj.key}`))),
         praxList: this.state.setPrax.map(obj => this.state.praxList.concat(Object.entries(this.state)
         .filter(entry => entry[0] === `position${obj.key}`)))
       })
@@ -99,7 +108,7 @@ class Main extends Component {
     if(e.target.innerHTML === "remove education"){
       this.setState({
         setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
-        [`school${e.target.dataset.btn}`]: "",
+        [`school${e.target.dataset.btn}`]: "", // change to undefined
         [`degree${e.target.dataset.btn}`]: "",
         [`degreeFrom${e.target.dataset.btn}`]: "",
         [`degreeTo${e.target.dataset.btn}`]: ""
@@ -154,7 +163,7 @@ class Main extends Component {
           addForm={this.addForm}
           deleteForm={this.deleteForm} /> }
         {!this.state.isHidden && <EducationCV 
-          edList={this.edList}
+          edList={this.state.edList}
           />}
         
 
