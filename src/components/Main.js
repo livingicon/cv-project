@@ -56,9 +56,9 @@ class Main extends Component {
       this.state.setPrax.map(obj => {
         orderedPrax[`position${obj.key}`] = this.state[`position${obj.key}`];
         orderedPrax[`employer${obj.key}`] = this.state[`employer${obj.key}`];
-        orderedPrax[`JobFrom${obj.key}`] = this.state[`JobFrom${obj.key}`];
-        orderedPrax[`JobTo${obj.key}`] = this.state[`JobTo${obj.key}`];
         orderedPrax[`tasks${obj.key}`] = this.state[`tasks${obj.key}`];
+        orderedPrax[`jobFrom${obj.key}`] = this.state[`jobFrom${obj.key}`];
+        orderedPrax[`jobTo${obj.key}`] = this.state[`jobTo${obj.key}`];
       })
       this.setState({
         isHidden: !this.state.isHidden,
@@ -123,12 +123,6 @@ class Main extends Component {
     console.log(this.state);
   }
 
-  match = (info) => {
-    for(let i = 0 ; i < this.state.previewState.length; i++) {
-      this.state.previewState[i][0] === `${info}` && console.log(this.state.previewState.indexOf(this.state.previewState[i]));
-    }
-  }
-
   render() {
 
     return (
@@ -169,7 +163,9 @@ class Main extends Component {
           addForm={this.addForm}
           deleteForm={this.deleteForm} /> }
         {!this.state.isHidden && <PracticalCV 
-          previewState={this.state.previewState} />}
+          setPrax={this.state.setPrax}
+          praxList={this.state.praxList}
+          />}
 
       </div>
     );

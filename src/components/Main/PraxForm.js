@@ -18,6 +18,7 @@ class PraxForm extends Component {
               type="text" 
               id="position" 
               name={`position${praxCount}`} 
+              placeholder="position"
               autoComplete="off"
             />
           </div>
@@ -29,6 +30,7 @@ class PraxForm extends Component {
               type="text" 
               id="employer" 
               name={`employer${praxCount}`}
+              placeholder="company"
               autoComplete="off" 
             />
           </div>

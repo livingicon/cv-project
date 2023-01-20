@@ -1,19 +1,23 @@
 // PracticalCV.js
  
-import React, { Component } from 'react';
+import React from 'react';
  
-class PracticalCV extends Component {
+const PracticalCV = (props) => {
+  const { praxList, setPrax } = props;
 
-  render() {
-    const { edCount, previewState, checkState, lastName, email, phone } = this.props;
+  return (
+    <ul>
+      {setPrax.map((obj) => {
+        return (
+          <div key={obj.key}>
+            <p key='key1'>{praxList[`position${obj.key}`]}</p>
+            <p key='key2'>{praxList[`employer${obj.key}`]}</p>
+            <p key='key3'>{`${praxList[`jobFrom${obj.key}`]} to ${praxList[`jobTo${obj.key}`]}`}</p>
+            <p key='key4'>{praxList[`tasks${obj.key}`]}</p>
+          </div>
+      )})}
+    </ul>
+  );
+};
 
-    return (
-      <div className="cvPreview">
-        <h4>and here</h4>
-      </div>
-    );
-  }
-}
-
- 
 export default PracticalCV;

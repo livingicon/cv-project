@@ -1,6 +1,6 @@
 // EducationCV.js
  
-import React, { Component } from 'react';
+import React from 'react';
  
 const EducationCV = (props) => {
   const { edList, setEd } = props;
@@ -12,9 +12,8 @@ const EducationCV = (props) => {
           <div key={obj.key}>
             <p key='key1'>{edList[`school${obj.key}`]}</p>
             <p key='key2'>{edList[`degree${obj.key}`]}</p>
-            <p>{`${edList[`degreeFrom${1}`]} to ${edList[`degreeTo${obj.key}`]}`}</p>
+            <p key='key3'>{`${edList[`degreeFrom${obj.key}`]} to ${edList[`degreeTo${obj.key}`]}`}</p>
           </div>
-
       )})}
     </ul>
   );
