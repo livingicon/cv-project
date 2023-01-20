@@ -46,7 +46,12 @@ class Main extends Component {
     if (this.state.firstName && this.state.isHidden) { // change later (alert?)
       e.target.innerHTML = 'Edit CV'
       const orderedSchool = {};
-      this.state.setEd.map(obj => orderedSchool[`school${obj.key}`] = this.state[`school${obj.key}`])
+      this.state.setEd.map(obj => {
+        orderedSchool[`school${obj.key}`] = this.state[`school${obj.key}`];
+        orderedSchool[`degree${obj.key}`] = this.state[`degree${obj.key}`];
+        orderedSchool[`degreeFrom${obj.key}`] = this.state[`degreeFrom${obj.key}`];
+        orderedSchool[`degreeTo${obj.key}`] = this.state[`degreeTo${obj.key}`];
+      })
       const orderedPrax = {};
       this.state.setPrax.map(obj => orderedPrax[`position${obj.key}`] = this.state[`position${obj.key}`])
       this.setState({
@@ -101,19 +106,19 @@ class Main extends Component {
     if(e.target.innerHTML === "remove education"){
       this.setState({
         setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
-        [`school${e.target.dataset.btn}`]: "", // change to undefined
-        [`degree${e.target.dataset.btn}`]: "",
-        [`degreeFrom${e.target.dataset.btn}`]: "",
-        [`degreeTo${e.target.dataset.btn}`]: ""
+        // [`school${e.target.dataset.btn}`]: "", // change to undefined
+        // [`degree${e.target.dataset.btn}`]: "",
+        // [`degreeFrom${e.target.dataset.btn}`]: "",
+        // [`degreeTo${e.target.dataset.btn}`]: ""
       });
     } else {
       this.setState({
         setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key),
-        [`position${e.target.dataset.btn}`]: "",
-        [`employer${e.target.dataset.btn}`]: "",
-        [`jobFrom${e.target.dataset.btn}`]: "",
-        [`jobTo${e.target.dataset.btn}`]: "",
-        [`tasks${e.target.dataset.btn}`]: ""
+        // [`position${e.target.dataset.btn}`]: "",
+        // [`employer${e.target.dataset.btn}`]: "",
+        // [`jobFrom${e.target.dataset.btn}`]: "",
+        // [`jobTo${e.target.dataset.btn}`]: "",
+        // [`tasks${e.target.dataset.btn}`]: ""
       });
     }
   }
