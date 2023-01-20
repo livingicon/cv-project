@@ -9,8 +9,8 @@ class GeneralCV extends Component {
     return (
       <div className="cvPreview">
         <p>{`${firstName} ${lastName}`}</p>
-        <p>{`${email}`}</p>
-        <p>{`${phone}`}</p>
+        <p>{email}</p>
+        <p>{phone}</p>
         <button onClick={checkState}>check state</button>
       </div>
     );

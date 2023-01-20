@@ -2,18 +2,22 @@
  
 import React, { Component } from 'react';
  
-class EducationCV extends Component {
+const EducationCV = (props) => {
+  const { edList, setEd } = props;
 
-  render() {
-    const { edList, school, edCount, previewState, checkState, lastName, email, phone } = this.props;
+  return (
+    <ul>
+      {setEd.map((obj) => {
+        return <li key={obj.key}>{edList[`school${obj.key}`]}</li>;
+      })}
+    </ul>
+  );
+};
 
-    return (
-      <div className="cvPreview">
-        <h4>{edList.school1}</h4>
-      </div>
-    );
-  }
-}
-
- 
 export default EducationCV;
+
+{/* <div className="cvPreview">
+<p>{edList[`school${obj.key}`]}</p> 
+<p>{edList[`degree1${obj.key}`]}</p>
+<p>{`${edList[`degreeFrom${1}`]} to ${edList[`degreeTo${obj.key}`]}`}</p>
+</div> */}

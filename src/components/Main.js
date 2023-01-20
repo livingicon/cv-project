@@ -53,7 +53,13 @@ class Main extends Component {
         orderedSchool[`degreeTo${obj.key}`] = this.state[`degreeTo${obj.key}`];
       })
       const orderedPrax = {};
-      this.state.setPrax.map(obj => orderedPrax[`position${obj.key}`] = this.state[`position${obj.key}`])
+      this.state.setPrax.map(obj => {
+        orderedPrax[`position${obj.key}`] = this.state[`position${obj.key}`];
+        orderedPrax[`employer${obj.key}`] = this.state[`employer${obj.key}`];
+        orderedPrax[`JobFrom${obj.key}`] = this.state[`JobFrom${obj.key}`];
+        orderedPrax[`JobTo${obj.key}`] = this.state[`JobTo${obj.key}`];
+        orderedPrax[`tasks${obj.key}`] = this.state[`tasks${obj.key}`];
+      })
       this.setState({
         isHidden: !this.state.isHidden,
         edList: {...this.state.edList, ...orderedSchool},
@@ -70,7 +76,6 @@ class Main extends Component {
   handleChangeInput = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
-
     });
   };
 
@@ -106,19 +111,10 @@ class Main extends Component {
     if(e.target.innerHTML === "remove education"){
       this.setState({
         setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
-        // [`school${e.target.dataset.btn}`]: "", // change to undefined
-        // [`degree${e.target.dataset.btn}`]: "",
-        // [`degreeFrom${e.target.dataset.btn}`]: "",
-        // [`degreeTo${e.target.dataset.btn}`]: ""
       });
     } else {
       this.setState({
         setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key),
-        // [`position${e.target.dataset.btn}`]: "",
-        // [`employer${e.target.dataset.btn}`]: "",
-        // [`jobFrom${e.target.dataset.btn}`]: "",
-        // [`jobTo${e.target.dataset.btn}`]: "",
-        // [`tasks${e.target.dataset.btn}`]: ""
       });
     }
   }
@@ -161,6 +157,7 @@ class Main extends Component {
           addForm={this.addForm}
           deleteForm={this.deleteForm} /> }
         {!this.state.isHidden && <EducationCV 
+          setEd={this.state.setEd}
           edList={this.state.edList}
           />}
         
