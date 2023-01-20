@@ -9,7 +9,7 @@ class EducationCV extends Component {
 
     return (
       <div className="cvPreview">
-        <h4>{edList[0][0][1]}</h4>
+        <h4>hi</h4>
       </div>
     );
   }

@@ -46,20 +46,13 @@ class Main extends Component {
     if (this.state.firstName && this.state.isHidden) { // change later (alert?)
       e.target.innerHTML = 'Edit CV'
       const orderedSchool = {};
-      const schoolOrder = ['school1','school2','school3','school4','school5','school6'];
-      this.state.setEd.map(obj => {
-        for(let i=0; i<=schoolOrder.length; i++) {
-          orderedSchool[schoolOrder[obj.key - 1]] = this.state[`school${obj.key}`];
-        }
-      })
-
-      console.log(orderedSchool);
+      this.state.setEd.map(obj => orderedSchool[`school${obj.key}`] = this.state[`school${obj.key}`])
+      const orderedPrax = {};
+      this.state.setPrax.map(obj => orderedPrax[`position${obj.key}`] = this.state[`position${obj.key}`])
       this.setState({
         isHidden: !this.state.isHidden,
-        // edList: this.state.setEd.map(obj => this.state.edList.concat(Object.entries(this.state) // nesting too deep
-        //   .filter(entry => entry[0] === `school${obj.key}`))),
-        praxList: this.state.setPrax.map(obj => this.state.praxList.concat(Object.entries(this.state)
-        .filter(entry => entry[0] === `position${obj.key}`)))
+        edList: {...this.state.edList, ...orderedSchool},
+        praxList: {...this.state.praxList, ...orderedPrax},
       })
     } else if (!this.state.isHidden) {
       e.target.innerHTML = 'Preview CV';
