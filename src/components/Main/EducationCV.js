@@ -8,16 +8,16 @@ const EducationCV = (props) => {
   return (
     <ul>
       {setEd.map((obj) => {
-        return <li key={obj.key}>{edList[`school${obj.key}`]}</li>;
-      })}
+        return (
+          <div key={obj.key}>
+            <p key='key1'>{edList[`school${obj.key}`]}</p>
+            <p key='key2'>{edList[`degree${obj.key}`]}</p>
+            <p>{`${edList[`degreeFrom${1}`]} to ${edList[`degreeTo${obj.key}`]}`}</p>
+          </div>
+
+      )})}
     </ul>
   );
 };
 
 export default EducationCV;
-
-{/* <div className="cvPreview">
-<p>{edList[`school${obj.key}`]}</p> 
-<p>{edList[`degree1${obj.key}`]}</p>
-<p>{`${edList[`degreeFrom${1}`]} to ${edList[`degreeTo${obj.key}`]}`}</p>
-</div> */}
