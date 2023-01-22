@@ -150,6 +150,7 @@ class Main extends Component {
   }
 
   deleteForm = (e) => {
+    e.preventDefault();
     if(e.target.innerHTML === "remove education"){
       this.setState({
         setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
