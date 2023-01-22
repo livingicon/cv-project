@@ -8,7 +8,7 @@ class GeneralInfo extends Component {
     const { handleChangeInput, firstName, lastName, email, phone } = this.props; // this.props.firstName
 
     return (
-      <div className="forms">
+      <div className="forms" id="general">
         <form>
           <div>
             <label htmlFor="firstName">first name</label>
@@ -19,7 +19,6 @@ class GeneralInfo extends Component {
               id="firstName" 
               name="firstName" 
               placeholder="first name" 
-              required
             />
           </div>
 

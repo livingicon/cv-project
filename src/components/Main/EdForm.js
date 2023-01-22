@@ -8,13 +8,13 @@ class EdForm extends Component {
     const { edCount, handleChangeInput, school, degree, degreeFrom, degreeTo, deleteForm } = this.props;
 
     return (
-      <div className="forms">
+      <div className="edForms">
         <form id="education">
           <div>
             <label htmlFor="school">organization administering degree or certification</label>
             <input 
               onChange={handleChangeInput}
-              value={school}
+              defaultValue={school}
               type="text" 
               id="school" 
               name={`school${edCount}`}

@@ -6,7 +6,7 @@ const EducationCV = (props) => {
   const { edList, setEd } = props;
 
   return (
-    <ul>
+    <ul className="edCV">
       {setEd.map((obj) => {
         return (
           <div key={obj.key}>

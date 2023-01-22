@@ -6,7 +6,7 @@ const PracticalCV = (props) => {
   const { praxList, setPrax } = props;
 
   return (
-    <ul>
+    <ul className="praxCV">
       {setPrax.map((obj) => {
         return (
           <div key={obj.key}>

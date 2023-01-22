@@ -8,7 +8,7 @@ class PraxForm extends Component {
     const { praxCount, handleChangeInput, position, employer, jobFrom, jobTo, tasks, deleteForm } = this.props;
 
     return (
-      <div className="forms">
+      <div className="praxForms">
         <form id="work">
           <div>
             <label htmlFor="position">job title</label>

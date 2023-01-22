@@ -17,7 +17,7 @@ class Main extends Component {
     super();
 
     this.state = {
-      isHidden: true,
+      // isHidden: true,
       edCount: 1,
       praxCount: 1,
       edList: {},
@@ -42,9 +42,30 @@ class Main extends Component {
   }
 
   onSubmitPreviewCV = (e) => { 
-    e.preventDefault();
-    if (this.state.firstName && this.state.isHidden) { // change later (alert?)
+    // e.preventDefault();
+    if (e.target.innerHTML === 'Preview CV') {
       e.target.innerHTML = 'Edit CV'
+      document.getElementById('general').style.display = 'none';
+      const edForms = document.getElementsByClassName('edForms');
+      const praxForms = document.getElementsByClassName('praxForms');
+      const addEducation = document.getElementsByClassName('addEducation');
+      const addPrax = document.getElementsByClassName('addPrax');
+      for (let i=0; i<edForms.length; i++){
+        edForms[i].style.display = 'none';
+      }
+      for (let i=0; i<praxForms.length; i++){
+        praxForms[i].style.display = 'none';
+      }
+      for (let i=0; i<addEducation.length; i++){
+        addEducation[i].style.display = 'none';
+      }
+      for (let i=0; i<addPrax.length; i++){
+        addPrax[i].style.display = 'none';
+      }
+      // document.getElementById('prax').style.display = 'none';
+      // document.getElementById('generalCV').style.display = 'block';
+      // document.getElementById('edCV').style.display = 'block';
+      // document.getElementById('praxCV').style.display = 'block';
       const orderedSchool = {};
       this.state.setEd.map(obj => {
         orderedSchool[`school${obj.key}`] = this.state[`school${obj.key}`];
@@ -61,15 +82,21 @@ class Main extends Component {
         orderedPrax[`jobTo${obj.key}`] = this.state[`jobTo${obj.key}`];
       })
       this.setState({
-        isHidden: !this.state.isHidden,
+        // isHidden: !this.state.isHidden,
         edList: {...this.state.edList, ...orderedSchool},
         praxList: {...this.state.praxList, ...orderedPrax},
       })
-    } else if (!this.state.isHidden) {
+    } else if (e.target.innerHTML === 'Edit CV') {
       e.target.innerHTML = 'Preview CV';
-      this.setState({
-        isHidden: !this.state.isHidden
-      })
+      document.getElementById('general').style.display = 'block';
+      document.getElementById('ed').style.display = 'block';
+      document.getElementById('prax').style.display = 'block';
+      document.getElementById('generalCV').style.display = 'none';
+      document.getElementById('edCV').style.display = 'none';
+      document.getElementById('praxCV').style.display = 'none';
+      // this.setState({
+      //   // isHidden: !this.state.isHidden,
+      // })
     }
   }
 
@@ -80,7 +107,7 @@ class Main extends Component {
   };
 
   addForm = (e) => { // still could be dry-er maybe? 
-    e.preventDefault();
+    // e.preventDefault();
     if(e.target.innerHTML === "add education") {
       this.setState({
         edCount: this.state.edCount + 1,
@@ -107,7 +134,7 @@ class Main extends Component {
   }
 
   deleteForm = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if(e.target.innerHTML === "remove education"){
       this.setState({
         setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
@@ -117,10 +144,6 @@ class Main extends Component {
         setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key),
       });
     }
-  }
-
-  checkState = (e) => { // for testing...delete later
-    console.log(this.state);
   }
 
   render() {
@@ -133,9 +156,9 @@ class Main extends Component {
 
         <h2>General Information</h2>
 
-        {this.state.isHidden && <GeneralInfo
+        {<GeneralInfo
           handleChangeInput={this.handleChangeInput} />} 
-        {!this.state.isHidden && <GeneralCV 
+        {<GeneralCV 
           checkState={this.checkState}
           firstName={this.state.firstName}
           lastName={this.state.lastName}
@@ -145,24 +168,24 @@ class Main extends Component {
 
         <h2>Educational Experience</h2>
 
-        {this.state.isHidden && <EducationalExp 
+        {<EducationalExp 
           handleChangeInput={this.handleChangeInput}
           setEd={this.state.setEd}
           addForm={this.addForm}
           deleteForm={this.deleteForm} /> }
-        {!this.state.isHidden && <EducationCV 
+        {<EducationCV 
           setEd={this.state.setEd}
           edList={this.state.edList}
           />}
         
 
         <h2>Practical Experience</h2>
-        {this.state.isHidden &&<PracticalExp 
+        {<PracticalExp 
           handleChangeInput={this.handleChangeInput}
           setPrax={this.state.setPrax}
           addForm={this.addForm}
           deleteForm={this.deleteForm} /> }
-        {!this.state.isHidden && <PracticalCV 
+        {<PracticalCV 
           setPrax={this.state.setPrax}
           praxList={this.state.praxList}
           />}

@@ -7,7 +7,7 @@ class GeneralCV extends Component {
   render() {
     const { checkState, firstName, lastName, email, phone } = this.props;
     return (
-      <div className="cvPreview">
+      <div className="cvPreview" id="generalCV">
         <p>{`${firstName} ${lastName}`}</p>
         <p>{email}</p>
         <p>{phone}</p>
