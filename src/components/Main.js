@@ -10,6 +10,7 @@ import PracticalCV from "./Main/PracticalCV";
 import CVPreview from "./Main/CVPreview";
 import EdForm from "./Main/EdForm";
 import PraxForm from "./Main/PraxForm";
+import "../styles/cv.css";
 
  
 class Main extends Component {
