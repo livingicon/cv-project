@@ -1,0 +1,79 @@
+/* GENERAL */
+:root {
+  --hit-color: #d31414;
+  --miss-color: #27a8a8;
+  --water-color: #2626a1;
+  --primary-light:  #cfd8d1;
+  --secondary-light: #82897f;
+  --primary-dark: #1e2d30;
+  --secondary-dark: #323c3d;
+  --cell-size: 25px;
+}
+
+html {
+  font-size: 1rem;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--primary-dark);
+}
+
+body {
+  background-color: var(--secondary-light);
+  margin: 0;
+  color: var(--primary-dark);
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.header,
+.footer {
+  background-color: var(--secondary-dark);
+  display: flex;
+  justify-content: center;
+  color: var(--primary-light);
+}
+
+h2 {
+margin-left: 40px
+}
+
+.cv_preview {
+  display: grid;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  color: var(--primary-dark);
+}
+
+#toggleView {
+  padding: 10px;
+  margin: 20px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  background-color: var(--miss-color);
+  box-shadow: 5px 5px 5px 5px var(--secondary-dark);
+}
+
+#generalCV {
+  display: none;
+}
+
+#generalCV p {
+  margin-left: 60px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.edCV {
+  display: none;
+}
+
+.praxCV {
+  display: none;
+}

@@ -10,7 +10,7 @@ import PracticalCV from "./Main/PracticalCV";
 import CVPreview from "./Main/CVPreview";
 import EdForm from "./Main/EdForm";
 import PraxForm from "./Main/PraxForm";
-import "../styles/cv.css";
+import "../styles/forms.css";
 
  
 class Main extends Component {
@@ -18,6 +18,8 @@ class Main extends Component {
     super();
 
     this.state = {
+      firstName: '',
+      lastName: '',
       edCount: 1,
       praxCount: 1,
       edList: {},
@@ -68,13 +70,13 @@ class Main extends Component {
       }
       // unhide
       generalCV.style.display = 'block';
+
       for (let i=0; i<edCV.length; i++){
         edCV[i].style.display = 'block';
       }
       for (let i=0; i<praxCV.length; i++){
         praxCV[i].style.display = 'block';
       }
-
 
       const orderedSchool = {};
       this.state.setEd.map(obj => {

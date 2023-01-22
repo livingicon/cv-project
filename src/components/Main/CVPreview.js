@@ -9,7 +9,7 @@ class CVPreview extends Component {
     
     return (
       <div className="cv_preview">
-        <button onClick={onSubmitPreviewCV}>Preview CV</button>
+        <button id="toggleView" onClick={onSubmitPreviewCV}>Preview CV</button>
         {/* <button onClick={toggleHidden}>Edit CV</button> */}
       </div>
     );
