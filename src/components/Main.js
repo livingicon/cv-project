@@ -65,13 +65,12 @@ class Main extends Component {
         add[i].style.display = 'none';
       }
       // unhide
-      generalCV.style.display = 'block';
-
+      generalCV.style.display = 'flex';
       for (let i=0; i<edCV.length; i++){
-        edCV[i].style.display = 'block';
+        edCV[i].style.display = 'flex';
       }
       for (let i=0; i<praxCV.length; i++){
-        praxCV[i].style.display = 'block';
+        praxCV[i].style.display = 'flex';
       }
 
       const orderedSchool = {};

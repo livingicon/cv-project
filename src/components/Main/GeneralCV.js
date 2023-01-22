@@ -8,9 +8,11 @@ class GeneralCV extends Component {
     const { firstName, lastName, email, phone } = this.props;
     return (
       <div className="cvPreview" id="generalCV">
-        <p>{`${firstName} ${lastName}`}</p>
-        <p>{email}</p>
-        <p>{phone}</p>
+        <ul>
+          <li>{`${firstName} ${lastName}`}</li>
+          <li>{email}</li>
+          <li>{phone}</li>
+        </ul>
       </div>
     );
   }
