@@ -13,11 +13,10 @@ import PraxForm from "./Main/PraxForm";
 
  
 class Main extends Component {
-  constructor() { // does it need (props) here?
+  constructor(props) {
     super();
 
     this.state = {
-      // isHidden: true,
       edCount: 1,
       praxCount: 1,
       edList: {},
@@ -42,14 +41,13 @@ class Main extends Component {
   }
 
   onSubmitPreviewCV = (e) => { 
-    // e.preventDefault();
+    const edForms = document.getElementsByClassName('edForms');
+    const praxForms = document.getElementsByClassName('praxForms');
+    const addEducation = document.getElementsByClassName('addEducation');
+    const addPrax = document.getElementsByClassName('addPrax');
     if (e.target.innerHTML === 'Preview CV') {
       e.target.innerHTML = 'Edit CV'
       document.getElementById('general').style.display = 'none';
-      const edForms = document.getElementsByClassName('edForms');
-      const praxForms = document.getElementsByClassName('praxForms');
-      const addEducation = document.getElementsByClassName('addEducation');
-      const addPrax = document.getElementsByClassName('addPrax');
       for (let i=0; i<edForms.length; i++){
         edForms[i].style.display = 'none';
       }
@@ -62,10 +60,7 @@ class Main extends Component {
       for (let i=0; i<addPrax.length; i++){
         addPrax[i].style.display = 'none';
       }
-      // document.getElementById('prax').style.display = 'none';
-      // document.getElementById('generalCV').style.display = 'block';
-      // document.getElementById('edCV').style.display = 'block';
-      // document.getElementById('praxCV').style.display = 'block';
+
       const orderedSchool = {};
       this.state.setEd.map(obj => {
         orderedSchool[`school${obj.key}`] = this.state[`school${obj.key}`];
@@ -82,21 +77,24 @@ class Main extends Component {
         orderedPrax[`jobTo${obj.key}`] = this.state[`jobTo${obj.key}`];
       })
       this.setState({
-        // isHidden: !this.state.isHidden,
         edList: {...this.state.edList, ...orderedSchool},
         praxList: {...this.state.praxList, ...orderedPrax},
       })
     } else if (e.target.innerHTML === 'Edit CV') {
       e.target.innerHTML = 'Preview CV';
       document.getElementById('general').style.display = 'block';
-      document.getElementById('ed').style.display = 'block';
-      document.getElementById('prax').style.display = 'block';
-      document.getElementById('generalCV').style.display = 'none';
-      document.getElementById('edCV').style.display = 'none';
-      document.getElementById('praxCV').style.display = 'none';
-      // this.setState({
-      //   // isHidden: !this.state.isHidden,
-      // })
+      for (let i=0; i<edForms.length; i++){
+        edForms[i].style.display = 'block';
+      }
+      for (let i=0; i<praxForms.length; i++){
+        praxForms[i].style.display = 'block';
+      }
+      for (let i=0; i<addEducation.length; i++){
+        addEducation[i].style.display = 'block';
+      }
+      for (let i=0; i<addPrax.length; i++){
+        addPrax[i].style.display = 'block';
+      }
     }
   }
 
@@ -106,8 +104,7 @@ class Main extends Component {
     });
   };
 
-  addForm = (e) => { // still could be dry-er maybe? 
-    // e.preventDefault();
+  addForm = (e) => {
     if(e.target.innerHTML === "add education") {
       this.setState({
         edCount: this.state.edCount + 1,
@@ -134,7 +131,6 @@ class Main extends Component {
   }
 
   deleteForm = (e) => {
-    // e.preventDefault();
     if(e.target.innerHTML === "remove education"){
       this.setState({
         setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
@@ -159,7 +155,6 @@ class Main extends Component {
         {<GeneralInfo
           handleChangeInput={this.handleChangeInput} />} 
         {<GeneralCV 
-          checkState={this.checkState}
           firstName={this.state.firstName}
           lastName={this.state.lastName}
           email={this.state.email}
