@@ -132,5 +132,13 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0;
+}
+
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.last {
+  margin-bottom: 15px;
 }

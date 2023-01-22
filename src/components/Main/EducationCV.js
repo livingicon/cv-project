@@ -12,7 +12,7 @@ const EducationCV = (props) => {
           <div key={obj.key}>
             <p key='key1'>{edList[`school${obj.key}`]}</p>
             <p key='key2'>{edList[`degree${obj.key}`]}</p>
-            <p key='key3'>{`${edList[`degreeFrom${obj.key}`]} to ${edList[`degreeTo${obj.key}`]}`}</p>
+            <p key='key3' className="last">{`${edList[`degreeFrom${obj.key}`]} to ${edList[`degreeTo${obj.key}`]}`}</p>
           </div>
       )})}
     </ul>
