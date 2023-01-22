@@ -88,22 +88,22 @@ form div {
   border-radius: 5px;
   margin: 5px;
   color: var(--primary-light);
-  /* margin-right: auto; */
+}
+
+.education,
+.practical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .add {
   background-color: var(--water-color);
   color: var(--primary-light);
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 10px;
   padding: 10px;
 }
-
-/* #general {
-  display: grid;
-  justify-content: center;
-} */
 
 label {
   margin: 5px;
@@ -120,11 +120,6 @@ input {
   margin-bottom: 5px;
 }
 
-#generalCV p {
-  /* margin-left: 40px; */
-}
-
-/* initial displays */
 #generalCV,
 .edCV,
 .praxCV {
