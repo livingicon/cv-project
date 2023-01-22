@@ -1,8 +1,8 @@
 /* GENERAL */
 :root {
-  --hit-color: #d31414;
+  --hit-color: #9b1616;
   --miss-color: #27a8a8;
-  --water-color: #2626a1;
+  --water-color: #177014;
   --primary-light:  #cfd8d1;
   --secondary-light: #82897f;
   --primary-dark: #1e2d30;
@@ -30,7 +30,7 @@ body {
 
 .header,
 .footer {
-  background-color: var(--secondary-dark);
+  background-color: var(--primary-dark);
   display: flex;
   justify-content: center;
   color: var(--primary-light);
@@ -47,7 +47,6 @@ margin-left: 40px
 
 button {
   border: none;
-  border-radius: 10px;
   color: var(--primary-dark);
 }
 
@@ -58,6 +57,37 @@ button {
   font-weight: bolder;
   background-color: var(--miss-color);
   box-shadow: 5px 5px 5px 5px var(--secondary-dark);
+  border-radius: 10px;
+}
+
+form {
+  background-color: var(--primary-light);
+  border: 2px solid var(--primary-dark);
+  border-radius: 10px;
+  margin: 20px;
+  display: grid;
+}
+
+.remove {
+  background-color: var(--hit-color);
+  border-radius: 5px;
+  margin: 5px;
+  color: var(--primary-light)
+}
+
+.add {
+  background-color: var(--water-color);
+  color: var(--primary-light);
+  border-radius: 5px;
+  margin: 5px;
+}
+
+label {
+  margin-left: 10px;
+}
+input {
+  border: none;
+  border-radius: 5px;
 }
 
 #generalCV {

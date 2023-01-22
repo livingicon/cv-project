@@ -10,7 +10,7 @@ class EducationalExp extends Component {
     return (
       <div>
         {setEd} 
-        <button className="addEducation" onClick={addForm}>add education</button>
+        <button className="add" id="addEducation" onClick={addForm}>add education</button>
       </div>
     );
   }

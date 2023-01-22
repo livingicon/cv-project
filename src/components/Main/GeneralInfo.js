@@ -18,7 +18,6 @@ class GeneralInfo extends Component {
               type="text" 
               id="firstName" 
               name="firstName" 
-              placeholder="first name" 
             />
           </div>
 
@@ -30,7 +29,6 @@ class GeneralInfo extends Component {
               type="text" 
               id="lastName" 
               name="lastName" 
-              placeholder="last name" 
               required
             />
           </div>
@@ -43,7 +41,6 @@ class GeneralInfo extends Component {
               type="email" 
               id="user_email" 
               name="email" 
-              placeholder="you@example.com" 
               autoComplete="off"
             />
           </div>
@@ -55,8 +52,6 @@ class GeneralInfo extends Component {
               type="tel" 
               id="phone_number" 
               name="phone" 
-              placeholder="123-456-7891" 
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
               autoComplete="off"
             />
           </div>

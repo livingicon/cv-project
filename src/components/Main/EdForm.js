@@ -18,7 +18,6 @@ class EdForm extends Component {
               type="text" 
               id="school" 
               name={`school${edCount}`}
-              placeholder="Purdue University"
               autoComplete="off"
             />
           </div>
@@ -29,8 +28,7 @@ class EdForm extends Component {
               value={degree}
               type="text" 
               id="degree" 
-              name={`degree${edCount}`} 
-              placeholder="Bachelor of Arts in Computer Science" 
+              name={`degree${edCount}`}  
               autoComplete="off"
             />
           </div>
@@ -52,7 +50,7 @@ class EdForm extends Component {
               name={`degreeTo${edCount}`}
             />
           </div>
-          <button data-btn={`${edCount}`} onClick={deleteForm}>remove education</button>
+          <button className="remove" data-btn={`${edCount}`} onClick={deleteForm}>remove education</button>
         </form>
       </div>
     );
