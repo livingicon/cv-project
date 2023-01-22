@@ -42,13 +42,18 @@ class Main extends Component {
   }
 
   onSubmitPreviewCV = (e) => { 
+    const general = document.getElementById('general');
     const edForms = document.getElementsByClassName('edForms');
     const praxForms = document.getElementsByClassName('praxForms');
     const addEducation = document.getElementsByClassName('addEducation');
     const addPrax = document.getElementsByClassName('addPrax');
+    const generalCV = document.getElementById('generalCV');
+    const edCV = document.getElementsByClassName('edCV');
+    const praxCV = document.getElementsByClassName('praxCV');
     if (e.target.innerHTML === 'Preview CV') {
       e.target.innerHTML = 'Edit CV'
-      document.getElementById('general').style.display = 'none';
+      // hide
+      general.style.display = 'none';
       for (let i=0; i<edForms.length; i++){
         edForms[i].style.display = 'none';
       }
@@ -61,6 +66,15 @@ class Main extends Component {
       for (let i=0; i<addPrax.length; i++){
         addPrax[i].style.display = 'none';
       }
+      // unhide
+      generalCV.style.display = 'block';
+      for (let i=0; i<edCV.length; i++){
+        edCV[i].style.display = 'block';
+      }
+      for (let i=0; i<praxCV.length; i++){
+        praxCV[i].style.display = 'block';
+      }
+
 
       const orderedSchool = {};
       this.state.setEd.map(obj => {
@@ -83,7 +97,8 @@ class Main extends Component {
       })
     } else if (e.target.innerHTML === 'Edit CV') {
       e.target.innerHTML = 'Preview CV';
-      document.getElementById('general').style.display = 'block';
+      // unhide
+      general.style.display = 'block';
       for (let i=0; i<edForms.length; i++){
         edForms[i].style.display = 'block';
       }
@@ -95,6 +110,14 @@ class Main extends Component {
       }
       for (let i=0; i<addPrax.length; i++){
         addPrax[i].style.display = 'block';
+      }
+      // hide
+      generalCV.style.display = 'none';
+      for (let i=0; i<edCV.length; i++){
+        edCV[i].style.display = 'none';
+      }
+      for (let i=0; i<praxCV.length; i++){
+        praxCV[i].style.display = 'none';
       }
     }
   }
