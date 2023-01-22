@@ -8,7 +8,7 @@ class PracticalExp extends Component {
     const { setPrax, addForm } = this.props;
 
     return (
-      <div>
+      <div className="practical">
         {setPrax} 
         <button className="add" id="addPrax" onClick={addForm}>add experience</button>
       </div>

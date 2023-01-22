@@ -2,7 +2,7 @@
 :root {
   --hit-color: #9b1616;
   --miss-color: #27a8a8;
-  --water-color: #177014;
+  --water-color: #115f0f;
   --primary-light:  #cfd8d1;
   --secondary-light: #82897f;
   --primary-dark: #1e2d30;
@@ -36,8 +36,13 @@ body {
   color: var(--primary-light);
 }
 
+.footer {
+  margin-top: 20px;
+}
+
 h2 {
-margin-left: 40px
+display: grid;
+justify-content: center;
 }
 
 .cv_preview {
@@ -48,6 +53,7 @@ margin-left: 40px
 button {
   border: none;
   color: var(--primary-dark);
+  font-size: 1rem;
 }
 
 #toggleView {
@@ -61,33 +67,56 @@ button {
 }
 
 form {
+  max-width: 400px;
   background-color: var(--primary-light);
   border: 2px solid var(--primary-dark);
   border-radius: 10px;
   margin: 20px;
-  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
 }
 
 .remove {
   background-color: var(--hit-color);
   border-radius: 5px;
   margin: 5px;
-  color: var(--primary-light)
+  color: var(--primary-light);
+  /* margin-right: auto; */
 }
 
 .add {
   background-color: var(--water-color);
   color: var(--primary-light);
-  border-radius: 5px;
-  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#general {
+  display: grid;
+  justify-content: center;
 }
 
 label {
-  margin-left: 10px;
+  margin: 5px;
 }
+
 input {
   border: none;
   border-radius: 5px;
+  margin: 0px 5px;
+  height: 23px;
+}
+
+#phone_number {
+  margin-bottom: 5px;
 }
 
 #generalCV {

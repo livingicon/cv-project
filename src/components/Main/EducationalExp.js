@@ -8,7 +8,7 @@ class EducationalExp extends Component {
     const { setEd, addForm } = this.props;
 
     return (
-      <div>
+      <div className="education">
         {setEd} 
         <button className="add" id="addEducation" onClick={addForm}>add education</button>
       </div>

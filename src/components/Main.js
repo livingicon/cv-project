@@ -47,8 +47,7 @@ class Main extends Component {
     const general = document.getElementById('general');
     const edForms = document.getElementsByClassName('edForms');
     const praxForms = document.getElementsByClassName('praxForms');
-    const addEducation = document.getElementsByClassName('addEducation');
-    const addPrax = document.getElementsByClassName('addPrax');
+    const add = document.getElementsByClassName('add');
     const generalCV = document.getElementById('generalCV');
     const edCV = document.getElementsByClassName('edCV');
     const praxCV = document.getElementsByClassName('praxCV');
@@ -62,11 +61,8 @@ class Main extends Component {
       for (let i=0; i<praxForms.length; i++){
         praxForms[i].style.display = 'none';
       }
-      for (let i=0; i<addEducation.length; i++){
-        addEducation[i].style.display = 'none';
-      }
-      for (let i=0; i<addPrax.length; i++){
-        addPrax[i].style.display = 'none';
+      for (let i=0; i<add.length; i++){
+        add[i].style.display = 'none';
       }
       // unhide
       generalCV.style.display = 'block';
@@ -107,11 +103,8 @@ class Main extends Component {
       for (let i=0; i<praxForms.length; i++){
         praxForms[i].style.display = 'block';
       }
-      for (let i=0; i<addEducation.length; i++){
-        addEducation[i].style.display = 'block';
-      }
-      for (let i=0; i<addPrax.length; i++){
-        addPrax[i].style.display = 'block';
+      for (let i=0; i<add.length; i++){
+        add[i].style.display = 'block';
       }
       // hide
       generalCV.style.display = 'none';
