@@ -15,6 +15,9 @@ import "../styles/forms.css";
 
 
 const Main = (props) => {
+  const [state, setState] = useState({
+    firstName: ''
+  });
   const [edCount, setEdCount] = useState(1);
   const [praxCount, setPraxCount] = useState(1);
   const [edList, setEdList] = useState({});
@@ -23,21 +26,22 @@ const Main = (props) => {
     <EdForm
       key={1}
       edCount={1}
-      handleChangeInput={this.handleChangeInput}
-      deleteForm={this.deleteForm} 
+      handleChangeInput={handleChangeInput}
+      deleteForm={deleteForm} 
     />
   ]);
   const [setPrax, setSetPrax] = useState([
     <PraxForm
       key={1}
       praxCount={1}
-      handleChangeInput={this.handleChangeInput}
-      deleteForm={this.deleteForm} 
+      handleChangeInput={handleChangeInput}
+      deleteForm={deleteForm} 
     />
   ]);
 
-  const handleChangeInput = (e) => {
-    this.setState({
+  function handleChangeInput(e) {
+    setState({
+      ...state, 
       [e.target.name]: e.target.value,
     });
   };
@@ -73,24 +77,23 @@ const Main = (props) => {
       }
 
       const orderedSchool = {};
-      this.state.setEd.map(obj => {
-        orderedSchool[`school${obj.key}`] = this.state[`school${obj.key}`];
-        orderedSchool[`degree${obj.key}`] = this.state[`degree${obj.key}`];
-        orderedSchool[`degreeFrom${obj.key}`] = this.state[`degreeFrom${obj.key}`];
-        orderedSchool[`degreeTo${obj.key}`] = this.state[`degreeTo${obj.key}`];
+      setEd.map(obj => {
+        orderedSchool[`school${obj.key}`] = [`school${obj.key}`];
+        orderedSchool[`degree${obj.key}`] = [`degree${obj.key}`];
+        orderedSchool[`degreeFrom${obj.key}`] = [`degreeFrom${obj.key}`];
+        orderedSchool[`degreeTo${obj.key}`] = [`degreeTo${obj.key}`];
       })
       const orderedPrax = {};
-      this.state.setPrax.map(obj => {
-        orderedPrax[`position${obj.key}`] = this.state[`position${obj.key}`];
-        orderedPrax[`employer${obj.key}`] = this.state[`employer${obj.key}`];
-        orderedPrax[`tasks${obj.key}`] = this.state[`tasks${obj.key}`];
-        orderedPrax[`jobFrom${obj.key}`] = this.state[`jobFrom${obj.key}`];
-        orderedPrax[`jobTo${obj.key}`] = this.state[`jobTo${obj.key}`];
+      setPrax.map(obj => {
+        orderedPrax[`position${obj.key}`] = [`position${obj.key}`];
+        orderedPrax[`employer${obj.key}`] = [`employer${obj.key}`];
+        orderedPrax[`tasks${obj.key}`] = [`tasks${obj.key}`];
+        orderedPrax[`jobFrom${obj.key}`] = [`jobFrom${obj.key}`];
+        orderedPrax[`jobTo${obj.key}`] = [`jobTo${obj.key}`];
       })
-      this.setState({
-        edList: {...this.state.edList, ...orderedSchool},
-        praxList: {...this.state.praxList, ...orderedPrax},
-      })
+      setEdList({...edList, ...orderedSchool});
+      setPraxList({...praxList, ...orderedPrax});
+
     } else if (e.target.innerHTML === 'Edit CV') {
       e.target.innerHTML = 'Preview CV';
       // unhide
@@ -117,40 +120,32 @@ const Main = (props) => {
 
   const addForm = (e) => {
     if(e.target.innerHTML === "add education") {
-      this.setState({
-        edCount: this.state.edCount + 1,
-        setEd: this.state.setEd.concat(
-          <EdForm 
-            edCount={this.state.edCount + 1} 
-            key={this.state.edCount + 1}
-            handleChangeInput={this.handleChangeInput}
-            deleteForm={this.deleteForm} />
-        )
-      });
+      setEdCount(edCount + 1);
+      setSetEd(setEd.concat(
+        <EdForm 
+          edCount={edCount + 1} 
+          key={edCount + 1}
+          handleChangeInput={handleChangeInput}
+          deleteForm={deleteForm} />
+      ));
     } else {
-      this.setState({
-        praxCount: this.state.praxCount + 1,
-        setPrax: this.state.setPrax.concat(
-          <PraxForm 
-            praxCount={this.state.praxCount + 1} 
-            key={this.state.praxCount + 1}
-            handleChangeInput={this.handleChangeInput}
-            deleteForm={this.deleteForm} />
-        )
-      });
+      setPraxCount(praxCount + 1);
+      setSetPrax(setPrax.concat(
+        <PraxForm 
+          praxCount={praxCount + 1} 
+          key={praxCount + 1}
+          handleChangeInput={handleChangeInput}
+          deleteForm={deleteForm} />
+      ));
     }
   }
 
-  const deleteForm = (e) => {
+  function deleteForm(e) {
     e.preventDefault();
     if(e.target.innerHTML === "remove education"){
-      this.setState({
-        setEd: this.state.setEd.filter(form => e.target.dataset.btn !== form.key),
-      });
+      setSetEd(setEd.filter(form => e.target.dataset.btn !== form.key));
     } else {
-      this.setState({
-        setPrax: this.state.setPrax.filter(form => e.target.dataset.btn !== form.key),
-      });
+      setSetPrax(setPrax.filter(form => e.target.dataset.btn !== form.key));
     }
   }
 
@@ -165,34 +160,34 @@ const Main = (props) => {
       {<GeneralInfo
         handleChangeInput={handleChangeInput} />} 
       {<GeneralCV 
-        firstName={this.state.firstName}
-        lastName={this.state.lastName}
-        email={this.state.email}
-        phone={this.state.phone}
+        firstName={state.firstName}
+        lastName={state.lastName}
+        email={state.email}
+        phone={state.phone}
         />}
 
       <h2>Educational Experience</h2>
 
       {<EducationalExp 
         handleChangeInput={handleChangeInput}
-        setEd={this.state.setEd}
+        setEd={setEd}
         addForm={addForm}
         deleteForm={deleteForm} /> }
       {<EducationCV 
-        setEd={this.state.setEd}
-        edList={this.state.edList}
+        setEd={setEd}
+        edList={edList}
         />}
       
 
       <h2>Practical Experience</h2>
       {<PracticalExp 
         handleChangeInput={handleChangeInput}
-        setPrax={this.state.setPrax}
+        setPrax={setPrax}
         addForm={addForm}
         deleteForm={deleteForm} /> }
       {<PracticalCV 
-        setPrax={this.state.setPrax}
-        praxList={this.state.praxList}
+        setPrax={setPrax}
+        praxList={praxList}
         />}
 
     </div>
