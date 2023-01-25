@@ -1,5 +1,6 @@
 // Main.js
- 
+
+// import React, { useState } from 'react';
 import React, { Component } from 'react';
 import GeneralInfo from "./Main/GeneralInfo";
 import GeneralCV from "./Main/GeneralCV";
@@ -12,7 +13,11 @@ import EdForm from "./Main/EdForm";
 import PraxForm from "./Main/PraxForm";
 import "../styles/forms.css";
 
- 
+
+// const Main = () => {
+
+// };
+
 class Main extends Component {
   constructor(props) {
     super();
