@@ -1,11 +1,10 @@
 // GeneralInfo.js
  
-// import React, { Component } from 'react';
 import React from 'react';
 
 const GeneralInfo = (props) => {
 
-  const { handleChangeInput, firstName, lastName, email, phone } = props; // this.props.firstName
+  const { handleChangeInput, firstName, lastName, email, phone } = props;
 
   return (
     <div className="forms" id="general">

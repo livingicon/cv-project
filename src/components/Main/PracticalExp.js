@@ -1,19 +1,17 @@
 // PracticalExp.js
 
-import React, { Component } from 'react';
+import React from 'react';
  
-class PracticalExp extends Component {
+const PracticalExp = (props) => {
 
-  render() {
-    const { setPrax, addForm } = this.props;
+  const { setPrax, addForm } = props;
 
-    return (
-      <div className="practical">
-        {setPrax} 
-        <button className="add" id="addPrax" onClick={addForm}>add experience</button>
-      </div>
-    );
-  }
+  return (
+    <div className="practical">
+      {setPrax} 
+      <button className="add" id="addPrax" onClick={addForm}>add experience</button>
+    </div>
+  );
 }
 
 export default PracticalExp;
